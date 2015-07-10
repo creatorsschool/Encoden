@@ -17,6 +17,7 @@ end
 # about
 get '/about' do
 
+	erb :about
 end
 
 # faq
@@ -26,16 +27,17 @@ end
 
 # contact
 get '/contact' do
-
+	
 end
 
 # pricing
 get '/pricing' do
-
+	
 end
 
 # signin
 get '/signin' do
+	
 
 end
 
