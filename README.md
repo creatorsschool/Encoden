@@ -1,3 +1,3 @@
 # Encoden - Creators School project
 
-Our e-learning platform.
+### Our e-learning platform.
