@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717161842) do
+ActiveRecord::Schema.define(version: 20150717162341) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "course_name",        null: false
+    t.string "course_duration",    null: false
+    t.text   "course_description", null: false
+    t.string "course_price",       null: false
+  end
 
   create_table "payments", force: :cascade do |t|
     t.date    "transaction_date", null: false
