@@ -9,5 +9,6 @@ class CreatePeopleTable < ActiveRecord::Migration
   		table.string :qualification
   		table.string :nationality
   		table.boolean :is_teacher, null: false, default: false
+  	end
   end
 end
