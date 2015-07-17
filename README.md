@@ -1,5 +1,7 @@
 # cs-project
 
+This is our Creators School project.
+
 # Todo
 
 ### Html
