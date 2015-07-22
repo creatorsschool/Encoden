@@ -3,18 +3,22 @@
 <head>
 
   <link rel="stylesheet" href="/stylesheets/normalize.css">
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
   <link href="/stylesheets/roboto.min.css" rel="stylesheet">
   <link href="/stylesheets/material.min.css" rel="stylesheet">
   <link href="/stylesheets/ripples.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/application.css">
 
-  <script src="/javascript/application.js"></script>
 
   <title>Your E-learning platform | @title </title>
 </head>
 <body>
+ <%= erb :navbar %>
   <%= yield %>
+
+
+
+  <script src="/javascript/application.js"></script>
 </body>
 </html>
