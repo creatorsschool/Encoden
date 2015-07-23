@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20150723091127) do
 
   create_table "users", force: :cascade do |t|
     t.string  "email",                   null: false
-    t.string  "name",                    null: false
     t.boolean "teacher", default: false, null: false
     t.integer "user_id"
   end
