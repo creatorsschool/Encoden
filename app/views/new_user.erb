@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Hurray!</h1>
+      <p>You are <%= @user.email %></p>
+      <p>You are officially part of our teachers' list! We just need one more thing from you to get started, all right?</p>
+
+      <h2>Please add your name:</h2>
+        <form class="user-form" action="/user/new/<%= @user.id %>" method="post">
+          <input type="text" name="email" class="form-control" placeholder="Your Name" required>
+          <button class="btn btn-primary" type="submit">
+            Let's Go!
+          </button>
+        </form>
+    </div>
+  </div>
+</div>
