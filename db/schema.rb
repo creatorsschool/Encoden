@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723133239) do
+ActiveRecord::Schema.define(version: 20150723170435) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150723133239) do
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
 end
