@@ -16,12 +16,12 @@ get "/user/new/:id" do
 end
 
 post "/user/new/:id" do
-  User.update(params[:id], params.slice("email"))
+  User.update(params[:id], params.slice("name"))
   redirect "/dashboard/#{params[:id]}"
 end
 
 get "/dashboard/:id" do
-  User.find(params[:id])
+  @user = User.find(params[:id])
   erb :dashboard
 end
 
