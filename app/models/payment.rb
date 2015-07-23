@@ -1,3 +1,4 @@
 class Payment < ActiveRecord::Base
-	belongs_to :courses, :users
+	belongs_to :course
+	belongs_to :user
 end
