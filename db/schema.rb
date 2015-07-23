@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717163739) do
+ActiveRecord::Schema.define(version: 20150723091127) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer "chapter_order",       null: false
@@ -37,21 +37,17 @@ ActiveRecord::Schema.define(version: 20150717163739) do
     t.decimal "payment_fee"
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string  "email",                         null: false
-    t.string  "name",                          null: false
-    t.string  "password",                      null: false
-    t.string  "sex"
-    t.date    "birth_date"
-    t.string  "qualification"
-    t.string  "nationality"
-    t.boolean "is_teacher",    default: false, null: false
-  end
-
   create_table "resources", force: :cascade do |t|
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "email",                   null: false
+    t.string  "name",                    null: false
+    t.boolean "teacher", default: false, null: false
+    t.integer "user_id"
   end
 
 end
