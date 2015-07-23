@@ -1,12 +1,43 @@
-<h1>DASHBOARD</h1>
-
-<h4>
-  <ul>
-    <li>
-    Name: <%= @user.name %><br>
-    Email: <%= @user.email %><br>
-    Date of creation:<br> <%= @user.created_at %><br>
-    </li>
-  </ul>
-</h4>
-  
+<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">My Courses</li>
+              <li class="active"><a href="#">Course 1</a></li>
+              <ul>
+                <li>My Lessons</li>
+                <li>Edit Course</li>
+              </ul>
+              <li><a href="#">Course 2</a></li>
+              <li><a href="#">Course 3</a></li>
+              <br>
+              <li class="nav-header">My Profile</li>
+              <li><a href="#">Edit</a></li>
+              <li><a href="#">Log Out</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-sm-4 col-md-4">
+              <h2>Heading</h2>
+              <p>Name: <%= @user.name %><br>
+                Email: <%= @user.email %><br>
+                Date of creation:<br> <%= @user.created_at %><br> </p>
+              <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div><!--/span-->
+            <div class="col-sm-4 col-md-4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div><!--/span-->
+            <div class="col-sm-4 col-md-4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn btn-default" href="#">View details »</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+    </div>
