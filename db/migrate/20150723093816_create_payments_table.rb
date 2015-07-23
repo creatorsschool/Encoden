@@ -6,5 +6,6 @@ class CreatePaymentsTable < ActiveRecord::Migration
   		table.integer :course_id
   		table.integer :user_id
   		table.timestamps
+  	end
   end
 end
