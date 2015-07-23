@@ -13,36 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150723091127) do
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer "chapter_order",       null: false
-    t.string  "chapter_name",        null: false
-    t.text    "chapter_description", null: false
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.string "course_name",        null: false
-    t.string "course_duration",    null: false
-    t.text   "course_description", null: false
-    t.string "course_price",       null: false
-  end
-
-  create_table "lessons", force: :cascade do |t|
-    t.string "lesson_name",        null: false
-    t.string "lesson_theme",       null: false
-    t.text   "lesson_description", null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.date    "transaction_date", null: false
-    t.decimal "payment_fee"
-  end
-
-  create_table "resources", force: :cascade do |t|
-    t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string  "email",                   null: false
     t.string  "name",                    null: false
