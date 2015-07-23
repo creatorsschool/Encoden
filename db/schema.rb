@@ -11,45 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717163739) do
+ActiveRecord::Schema.define(version: 20150723091127) do
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer "chapter_order",       null: false
-    t.string  "chapter_name",        null: false
-    t.text    "chapter_description", null: false
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.string "course_name",        null: false
-    t.string "course_duration",    null: false
-    t.text   "course_description", null: false
-    t.string "course_price",       null: false
-  end
-
-  create_table "lessons", force: :cascade do |t|
-    t.string "lesson_name",        null: false
-    t.string "lesson_theme",       null: false
-    t.text   "lesson_description", null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.date    "transaction_date", null: false
-    t.decimal "payment_fee"
-  end
-
-  create_table "people", force: :cascade do |t|
-    t.string  "email",                         null: false
-    t.string  "name",                          null: false
-    t.string  "password",                      null: false
-    t.string  "sex"
-    t.date    "birth_date"
-    t.string  "qualification"
-    t.string  "nationality"
-    t.boolean "is_teacher",    default: false, null: false
-  end
-
-  create_table "resources", force: :cascade do |t|
-    t.string   "url"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                      null: false
+    t.boolean  "teacher",    default: false, null: false
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
