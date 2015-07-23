@@ -1,0 +1,18 @@
+.navbar {
+  margin-bottom: 0px;
+}
+
+.jumbotron {
+  background-image:url("../sketching.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.black-layer {
+  color: rgba(255,255,255,.84);
+  background-color: rgba(0,0,0,.5);
+}
+
+.footer-placeholder {
+  padding-bottom: 40px;
+}
