@@ -1,5 +1,5 @@
 get '/' do
-	erb :index
+	erb :"frontend/index"
 end
 
 post '/user/add' do
@@ -12,7 +12,7 @@ end
 
 get "/user/new/:id" do
   @user = User.find(params[:id])
-  erb :new_user
+  erb :"frontend/new_user"
 end
 
 post "/user/new/:id" do
@@ -22,7 +22,7 @@ end
 
 get "/dashboard/:id" do
   @user = User.find(params[:id])
-  erb :dashboard
+  erb :"backend/dashboard"
 end
 
 get "/user/edit/:id" do
