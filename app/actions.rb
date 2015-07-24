@@ -37,7 +37,7 @@ end
 
 get "/course/new/:id" do
   @user = User.find(params[:id])
-  erb :add_course
+  erb :"backend/add_course"
 end
 
 
@@ -54,7 +54,7 @@ end
 
 get "/course/:id" do
   @course = Course.find(params[:id])
-  erb :course
+  erb :"backend/course"
 end
 
 # 404 Error!
