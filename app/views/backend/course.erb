@@ -1,6 +1,14 @@
 <h1>Course Details</h1>
-
-<%= @course.name %><br>
-<%= @course.description %><br>
-<%= @course.duration %><br>
-<%= @course.price %>€<br>
+<ul>
+  <li>
+        <% @courses.each do |course| %><br>
+    <%= course.name %><br>
+    <%= course.description %><br>
+    <%= course.duration %><br>
+    <%= course.price %>€<br>
+    <% end %>
+<button>
+  <a href="/dahsboard/<%= @user_id %>">Your Dashboard</a>
+</button>
+  </li>
+</ul>

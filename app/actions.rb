@@ -48,11 +48,20 @@ post "/course/add/:id" do
     duration: params[:duration],
     price: params[:price].to_f
     })
+  @payment = Payment.create({
+    payment_date: Date.today,
+    paid: true,
+    course_id: @course.id,
+    user_id: @user.id
+    })
   redirect "/dashboard/#{@user.id}"
 end
 
 get "/course/:id" do
-  @course = Course.find(params[:id])
+  @courses = User.find(params[:id]).courses
+  # @course = User.find(params[:id]).courses
+  # @course = Course.find(params[:id])
+  # Project.where(team: Member.find(118).team)
   erb :"backend/course"
 end
 
