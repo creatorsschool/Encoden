@@ -40,16 +40,15 @@ get "/course/new/:id" do
   erb :"backend/add_course"
 end
 
-
-
 post "/course/add/:id" do
+  @user = User.find(params[:id])
   @course = Course.create({
     name: params[:name],
     description: params[:description],
     duration: params[:duration],
     price: params[:price].to_f
     })
-  redirect "/course/#{@course.id}"
+  redirect "/dashboard/#{@user.id}"
 end
 
 get "/course/:id" do
