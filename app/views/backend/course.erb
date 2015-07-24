@@ -1,6 +1,14 @@
-<h1>Course Details</h1>
 
-<%= @course.name %><br>
-<%= @course.description %><br>
-<%= @course.duration %><br>
-<%= @course.price %>€<br>
+<%= erb :"backend/sidebar" %>
+
+<h1>Course Details</h1>
+<ul>
+  <li>
+    <% @courses.each do |course| %><br>
+      <%= course.name %><br>
+      <%= course.description %><br>
+      <%= course.duration %><br>
+      <%= course.price %>€<br>
+    <% end %>
+  </li>
+</ul>

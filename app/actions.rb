@@ -1,3 +1,9 @@
+helpers do
+  def current_user
+    User.find(params[:id])
+  end
+end
+
 get '/' do
 	erb :"frontend/index"
 end
@@ -40,21 +46,29 @@ get "/course/new/:id" do
   erb :"backend/add_course"
 end
 
-
-
 post "/course/add/:id" do
+  @user = User.find(params[:id])
   @course = Course.create({
     name: params[:name],
     description: params[:description],
     duration: params[:duration],
     price: params[:price].to_f
     })
-  redirect "/course/#{@course.id}"
+  @payment = Payment.create({
+    payment_date: Date.today,
+    paid: true,
+    course_id: @course.id,
+    user_id: @user.id
+    })
+  redirect "/dashboard/#{@user.id}"
 end
 
 get "/course/:id" do
-  @course = Course.find(params[:id])
-  erb :"backend/course"
+  @courses = User.find(params[:id]).courses
+  # @course = User.find(params[:id]).courses
+  # @course = Course.find(params[:id])
+  # Project.where(team: Member.find(118).team)
+  erb :"backend/course", locals: { x: 1 }
 end
 
 # 404 Error!
