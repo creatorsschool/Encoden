@@ -27,7 +27,7 @@ end
 
 get "/user/edit/:id" do
   @user = User.find(params[:id])
-  erb :edit_user
+  erb :"backend/edit_user"
 end
 
 post "/user/edit/:id" do
