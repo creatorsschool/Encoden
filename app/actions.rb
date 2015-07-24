@@ -25,6 +25,16 @@ get "/dashboard/:id" do
   erb :dashboard
 end
 
+get "/user/edit/:id" do
+  @user = User.find(params[:id])
+  erb :edit_user
+end
+
+post "/user/edit/:id" do
+  User.update(params[:id], params.slice("name", "email"))
+  redirect "/user/edit/#{params[:id]}"
+end
+
 # 404 Error!
 not_found do
 	status 404
