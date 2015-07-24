@@ -35,6 +35,28 @@ post "/user/edit/:id" do
   redirect "/user/edit/#{params[:id]}"
 end
 
+get "/course/new/:id" do
+  @user = User.find(params[:id])
+  erb :add_course
+end
+
+
+
+post "/course/add/:id" do
+  @course = Course.create({
+    name: params[:name],
+    description: params[:description],
+    duration: params[:duration],
+    price: params[:price].to_f
+    })
+  redirect "/course/#{@course.id}"
+end
+
+get "/course/:id" do
+  @course = Course.find(params[:id])
+  erb :course
+end
+
 # 404 Error!
 not_found do
 	status 404
