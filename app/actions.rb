@@ -1,3 +1,9 @@
+helpers do
+  def current_user
+    User.find(params[:id])
+  end
+end
+
 get '/' do
 	erb :"frontend/index"
 end
@@ -62,7 +68,7 @@ get "/course/:id" do
   # @course = User.find(params[:id]).courses
   # @course = Course.find(params[:id])
   # Project.where(team: Member.find(118).team)
-  erb :"backend/course"
+  erb :"backend/course", locals: { x: 1 }
 end
 
 # 404 Error!
