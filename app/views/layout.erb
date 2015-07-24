@@ -2,17 +2,22 @@
 <html lang="en">
 	<head>
 
-		<link href="/css/normalize.css" rel="stylesheet">
-		<link href="/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/css/roboto.min.css" rel="stylesheet">
-		<link href="/css/material.min.css" rel="stylesheet">
-		<link href="/css/ripples.min.css" rel="stylesheet">
+		<!-- Normalize -->
+		<link href="/css/normalize/normalize.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<!-- Materialize -->
+		<link href="/css/materialize/roboto.min.css" rel="stylesheet">
+		<link href="/css/materialize/material.min.css" rel="stylesheet">
+		<link href="/css/materialize/ripples.min.css" rel="stylesheet">
+		<!-- Custom CSS -->
 		<link href="/css/application.css" rel="stylesheet">
-
 
 		<title>Your E-learning platform | @title </title>
 	</head>
+
 	<body>
+
 		<%= erb :navbar %>
 		<%= yield %>
 		<%= erb :footer %>
