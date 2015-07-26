@@ -14,11 +14,17 @@
                   <input type="number" name="duration" class="form-control" placeholder="Duration" required>
                   <input type="text" name="price" class="form-control" placeholder="Course Price" required>
               <h2>Now please add a chapter:</h2>
+           
+
+                </div>
+
                 <form class="user-form" action="/course/add/<%= @user.id %>" method="post">
-                  <input type="text" name="name" class="form-control" placeholder="Course Name" required>
-                  <input type="textarea" name="description" class="form-control" placeholder="Course Description" required>
-                  <input type="number" name="duration" class="form-control" placeholder="Duration" required>
-                  <input type="text" name="price" class="form-control" placeholder="Course Price" required>
+                  <input type="text" name="chapter_name" class="form-control" placeholder="Chapter Name" required>
+                  <input type="textarea" name="chapter_description" class="form-control" placeholder="Chapter Description" required>
+                  <input type="number" name="chapter_duration" class="form-control" placeholder="Chapter Duration" required>
+                       <div class="input_fields_wrap">
+                 <button class="add_field_button">Add More Fields</button>
+               <div>
                   <button class="btn btn-primary" type="submit">
                     Let's Go!
                   </button>
