@@ -15,11 +15,11 @@
                   <input type="text" name="price" class="form-control" placeholder="Course Price" required>
               <h2>Now please add a chapter:</h2>
               <h4>Chapter Number #</h4>
-              </div>
+             
                 <form class="user-form" action="/course/add/<%= @user.id %>" method="post">
                   <input type="text" name="chapter_name" class="form-control" placeholder="Chapter Name" required>
                   <input type="textarea" name="chapter_description" class="form-control" placeholder="Chapter Description" required>
-                  <input type="number" name="chapter_duration" class="form-control" placeholder="Chapter Duration" required>
+                  
                   <!-- jquery -->
                   <div class="input_fields_wrap">
                    <button class="add_field_button btn btn-primary">Add Another Chapter</button>
@@ -28,7 +28,7 @@
                     Finish
                   </button>
                 </form>
-
+                 </div>
                 </div>
                 <div class="col-md-2"></div>
               </div>

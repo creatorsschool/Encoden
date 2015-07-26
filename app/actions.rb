@@ -58,6 +58,11 @@ post "/course/add/:id_user" do
     duration: params[:duration],
     price: params[:price].to_f
     })
+  @chapter = Chapter.create({
+    name: params[:chapter_name],
+    description: params[:chapter_description],
+    course_id: @course_id
+    })
   @payment = Payment.create({
     payment_date: Date.today,
     paid: true,
@@ -69,6 +74,7 @@ end
 
 get "/course/show/:id_course" do
   @course = Course.find(params[:id_course])
+  @chapters = Course.find(params[:id_course]).chapters
   # @course = User.find(params[:id]).courses
   # @course = Course.find(params[:id])
   # Project.where(team: Member.find(118).team)
