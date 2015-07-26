@@ -2,6 +2,10 @@ helpers do
   def current_user
     User.find(params[:id])
   end
+
+  def all_courses
+    Course.all
+  end
 end
 
 get '/' do
@@ -63,12 +67,22 @@ post "/course/add/:id" do
   redirect "/dashboard/#{@user.id}"
 end
 
-get "/course/:id" do
-  @courses = User.find(params[:id]).courses
+get "/course/show/:id" do
+  @course = Course.find(params[:id])
   # @course = User.find(params[:id]).courses
   # @course = Course.find(params[:id])
   # Project.where(team: Member.find(118).team)
   erb :"backend/course", locals: { x: 1 }
+end
+
+get "/course/edit/:id" do
+  @course = Course.find(params[:id])
+  erb :"backend/edit_course"
+end
+
+post "/course/edit/:id" do
+  Course.update(params[:id], params.slice("name", "description", "duration", "price"))
+  redirect "/course/edit/#{params[:id]}"
 end
 
 # 404 Error!
