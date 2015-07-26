@@ -1,14 +1,17 @@
-
+<div class="container-fluid">
 <%= erb :"backend/sidebar" %>
-
-<h1>Course Details</h1>
-<ul>
-  <li>
-    <% @courses.each do |course| %><br>
-      <%= course.name %><br>
-      <%= course.description %><br>
-      <%= course.duration %><br>
-      <%= course.price %>€<br>
-    <% end %>
-  </li>
-</ul>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-10">
+              <h1><%= @course.name %></h1>
+              <ul>
+                <li><%= @course.description %></li>
+                <li><%= @course.duration %></li>
+                <li><%= @course.price %>€</li>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+        </div>

@@ -1,20 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Hello <%= @user.name %>!</h1>
-      <p></p>
-      <p>Let's get started with the creation of a new course.</p>
+<div class="container-fluid">
+<%= erb :"backend/sidebar" %>
 
-      <h2>Please add your course name and a description of what your want to teach:</h2>
-        <form class="user-form" action="/course/add/<%= @user.id %>" method="post">
-          <input type="text" name="name" class="form-control" placeholder="Course Name" required>
-          <input type="text" name="description" class="form-control" placeholder="Course Description" required>
-          <input type="number" name="duration" class="form-control" placeholder="Duration" required>
-          <input type="text" name="price" class="form-control" placeholder="Course Price" required>
-          <button class="btn btn-primary" type="submit">
-            Let's Go!
-          </button>
-        </form>
-    </div>
-  </div>
-</div>
+<div class="col-md-9">
+          <div class="row">
+            <div class="col-md-10">
+              <h1>Hello <%= @user.name %>!</h1>
+              <p></p>
+              <p>Let's get started with the creation of a new course.</p>
+              <h2>Please add your course name and a description of what your want to teach:</h2>
+                <form class="user-form" action="/course/add/<%= @user.id %>" method="post">
+                  <input type="text" name="name" class="form-control" placeholder="Course Name" required>
+                  <input type="textarea" name="description" class="form-control" placeholder="Course Description" required>
+                  <input type="number" name="duration" class="form-control" placeholder="Duration" required>
+                  <input type="text" name="price" class="form-control" placeholder="Course Price" required>
+                  <button class="btn btn-primary" type="submit">
+                    Let's Go!
+                  </button>
+                </form>
+                </div>
+                <div class="col-md-2"></div>
+              </div>
+            </div>
+          </div>
