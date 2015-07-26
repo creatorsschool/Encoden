@@ -1,20 +1,20 @@
+<div class="container-fluid">
 <%= erb :"backend/sidebar" %>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-10">
-              <h1>Let's edit your Profile!</h1>
-                <form class="user-form" action="/user/edit/<%= @user.id %>" method="post">
-                <label for="name">Name</label>
-                  <input type="text" name="name" id="name" class="form-control" value="<%= @user.name %>" required>
-                  <label for="email">Email</label>
-                  <input type="email" name="email" class="form-control" value="<%= @user.email %>" id="email" required>
-                  <button class="btn btn-primary" type="submit">
-                    Update
-                  </button>
-                </form>
-            </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-10">
+            <h1>Let's edit your Profile!</h1>
+              <form class="user-form" action="/user/edit/<%= @user.id %>" method="post">
+              <label for="name">Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="<%= @user.name %>" required>
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" value="<%= @user.email %>" id="email" required>
+                <button class="btn btn-primary" type="submit">
+                  Update
+                </button>
+              </form>
           </div>
         </div>
-          <div class="col-md-2"></div>
       </div>
+        <div class="col-md-2"></div>
     </div>
