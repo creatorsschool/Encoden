@@ -4,7 +4,7 @@ helpers do
   end
 
   def all_courses
-    Course.all
+    User.find(params[:id]).courses
   end
 end
 
