@@ -6,10 +6,6 @@ helpers do
   def all_courses
     User.find(1).courses
   end
-
-  def all_chapters
-    Chapter.all
-  end
 end
 
 get '/' do
@@ -75,7 +71,6 @@ post "/course/add/:id_user" do
     })
   redirect "/dashboard/#{@user.id}"
 end
-
 
 
 get "/course/show/:id_course" do
