@@ -72,6 +72,7 @@ post "/course/add/:id_user" do
   redirect "/dashboard/#{@user.id}"
 end
 
+
 get "/course/show/:id_course" do
   @course = Course.find(params[:id_course])
   @chapters = Course.find(params[:id_course]).chapters
