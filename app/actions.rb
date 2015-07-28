@@ -4,11 +4,7 @@ helpers do
   end
 
   def all_courses
-<<<<<<< HEAD
     User.find(1).courses
-=======
-    User.find(params[:id]).courses
->>>>>>> print chapter in course page
   end
 end
 
