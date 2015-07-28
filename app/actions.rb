@@ -101,6 +101,7 @@ post '/chapter/add/:course_id' do
     redirect "/dashboard/#{current_user.id}"
   end
 
+
 get '/chapter/edit/:id_course' do
   @course = Course.find(params[:id_course])
   @chapters = Course.find(params[:id_course]).chapters
@@ -112,10 +113,12 @@ post '/chapter/edit/:id_course' do
   redirect "/chapter/edit/#{params[:id_course]}"
 end
 
-get '/chapter/delete/:chapter_id' do 
+  get '/chapter/delete/:chapter_id' do 
+    @course = Chapter.find(params[:chapter_id]).course_id
     Chapter.destroy(params[:chapter_id])
-    redirect "/dashboard/#{current_user.id}"
-end
+    
+    redirect "/course/show/#{@course}"
+  end
 
 
 # 404 Error!

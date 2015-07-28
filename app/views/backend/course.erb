@@ -14,11 +14,9 @@
                 <h3>Chapters</h3>
                 <% @course.chapters.each do |chapter| %>
                    <li>
-                    <%= chapter.name %><br>
+                    <%= chapter.name %>
+                    <a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a><br>
                     <%= chapter.description %>
-                   
-                      <a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a>
-                    
                   </li>
                 <% end %>
               </ul>
