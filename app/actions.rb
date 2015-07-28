@@ -56,15 +56,16 @@ post "/course/add/:id_user" do
     name: params[:name],
     description: params[:description],
     duration: params[:duration],
-    price: params[:price].to_f
+    price: params[:price].to_f,
+    user_id: params[:id_user]
     })
 
-  @payment = Payment.create({
-    payment_date: Date.today,
-    paid: true,
-    course_id: @course.id,
-    user_id: @user.id
-    })
+  #@payment = Payment.create({
+    #payment_date: Date.today,
+    #paid: true,
+    #course_id: @course.id,
+    #user_id: @user.id
+    #})
   redirect "/dashboard/#{@user.id}"
 end
 
@@ -72,9 +73,6 @@ end
 get "/course/show/:id_course" do
   @course = Course.find(params[:id_course])
   @chapters = Course.find(params[:id_course]).chapters
-  # @course = User.find(params[:id]).courses
-  # @course = Course.find(params[:id])
-  # Project.where(team: Member.find(118).team)
   erb :"backend/course", locals: { x: 1 }
 end
 
