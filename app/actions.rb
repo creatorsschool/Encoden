@@ -92,14 +92,13 @@ get '/chapter/add/:id' do
 end
 
 post '/chapter/add/:course_id' do
-    @user = User.find(params[:course_id])
     @course = Course.find(params[:course_id])
     @chapter = Chapter.create({
     name: params[:chapter_name],
     description: params[:chapter_description],
     course_id: @course.id
     })
-    redirect "/dashboard/#{@user.id}"
+    redirect "/dashboard/#{current_user.id}"
   end
 
 # 404 Error!
