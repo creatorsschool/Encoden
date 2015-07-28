@@ -112,6 +112,12 @@ post '/chapter/edit/:id_course' do
   redirect "/chapter/edit/#{params[:id_course]}"
 end
 
+get '/chapter/delete/:chapter_id' do 
+    Chapter.destroy(params[:chapter_id])
+    redirect "/dashboard/#{current_user.id}"
+end
+
+
 # 404 Error!
 not_found do
 	status 404
