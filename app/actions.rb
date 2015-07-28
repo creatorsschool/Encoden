@@ -1,10 +1,10 @@
 helpers do
   def current_user
-    User.find(params[:id])
+    User.find(1)
   end
 
   def all_courses
-    User.find(params[:id]).courses
+    User.find(1).courses
   end
 end
 
@@ -20,38 +20,38 @@ post '/user/add' do
   redirect "/user/new/#{user.id}"
 end
 
-get "/user/new/:id" do
-  @user = User.find(params[:id])
+get "/user/new/:id_user" do
+  @user = User.find(params[:id_user])
   erb :"frontend/new_user"
 end
 
-post "/user/new/:id" do
-  User.update(params[:id], params.slice("name"))
-  redirect "/dashboard/#{params[:id]}"
+post "/user/new/:id_user" do
+  User.update(params[:id_user], params.slice("name"))
+  redirect "/dashboard/#{params[:id_user]}"
 end
 
-get "/dashboard/:id" do
-  @user = User.find(params[:id])
+get "/dashboard/:id_user" do
+  @user = User.find(params[:id_user])
   erb :"backend/dashboard"
 end
 
-get "/user/edit/:id" do
-  @user = User.find(params[:id])
+get "/user/edit/:id_user" do
+  @user = User.find(params[:id_user])
   erb :"backend/edit_user"
 end
 
-post "/user/edit/:id" do
-  User.update(params[:id], params.slice("name", "email"))
-  redirect "/user/edit/#{params[:id]}"
+post "/user/edit/:id_user" do
+  User.update(params[:id_user], params.slice("name", "email"))
+  redirect "/user/edit/#{params[:id_user]}"
 end
 
-get "/course/new/:id" do
-  @user = User.find(params[:id])
+get "/course/new/:id_user" do
+  @user = User.find(params[:id_user])
   erb :"backend/add_course"
 end
 
-post "/course/add/:id" do
-  @user = User.find(params[:id])
+post "/course/add/:id_user" do
+  @user = User.find(params[:id_user])
   @course = Course.create({
     name: params[:name],
     description: params[:description],
@@ -67,22 +67,22 @@ post "/course/add/:id" do
   redirect "/dashboard/#{@user.id}"
 end
 
-get "/course/show/:id" do
-  @course = Course.find(params[:id])
+get "/course/show/:id_course" do
+  @course = Course.find(params[:id_course])
   # @course = User.find(params[:id]).courses
   # @course = Course.find(params[:id])
   # Project.where(team: Member.find(118).team)
   erb :"backend/course", locals: { x: 1 }
 end
 
-get "/course/edit/:id" do
-  @course = Course.find(params[:id])
+get "/course/edit/:id_course" do
+  @course = Course.find(params[:id_course])
   erb :"backend/edit_course"
 end
 
-post "/course/edit/:id" do
-  Course.update(params[:id], params.slice("name", "description", "duration", "price"))
-  redirect "/course/edit/#{params[:id]}"
+post "/course/edit/:id_course" do
+  Course.update(params[:id_course], params.slice("name", "description", "duration", "price"))
+  redirect "/course/edit/#{params[:id_course]}"
 end
 
 # 404 Error!
