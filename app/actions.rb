@@ -58,11 +58,7 @@ post "/course/add/:id_user" do
     duration: params[:duration],
     price: params[:price].to_f
     })
-  @chapter = Chapter.create({
-    name: params[:chapter_name],
-    description: params[:chapter_description],
-    course_id: @course_id
-    })
+
   @payment = Payment.create({
     payment_date: Date.today,
     paid: true,
@@ -91,6 +87,20 @@ post "/course/edit/:id_course" do
   Course.update(params[:id_course], params.slice("name", "description", "duration", "price"))
   redirect "/course/edit/#{params[:id_course]}"
 end
+
+get '/chapter/add/:course_>id' do
+  @course = Course.find(params[:id])
+  erb :"backend/add_chapter"
+end
+
+post '/chapter/add/:course_id' do
+    @chapter = Chapter.create({
+    name: params[:chapter_name],
+    description: params[:chapter_description],
+    course_id: @course_id
+    })
+    redirect "/dashboard/#{@user.id}"
+  end
 
 # 404 Error!
 not_found do
