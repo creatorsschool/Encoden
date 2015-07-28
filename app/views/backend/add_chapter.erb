@@ -6,7 +6,7 @@
             <div class="col-md-10">
               <h2>Now please add a chapter:</h2>
               <h4>Chapter Number #</h4>
-                <form class="user-form" action="/chapter/add/<%= @user.id %>" method="post">
+                <form class="user-form" action="/chapter/add/<%= @course.id %>" method="post">
                   <input type="text" name="chapter_name" class="form-control" placeholder="Chapter Name" required>
                   <input type="textarea" name="chapter_description" class="form-control" placeholder="Chapter Description" required>
                   

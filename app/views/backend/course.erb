@@ -10,6 +10,15 @@
                 <li><%= @course.duration %></li>
                 <li><%= @course.price %>€</li>
               </ul>
+              <ul>
+                <h3>Chapters</h3>
+                <% @course.chapters.each do |chapter| %>
+                   <li>
+                    <%= chapter.name %>
+                    <%= chapter.description %>
+                  </li>
+                <% end %>
+              </ul>
             </div>
             <div class="col-md-2"></div>
           </div>

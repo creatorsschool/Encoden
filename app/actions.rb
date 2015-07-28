@@ -4,7 +4,11 @@ helpers do
   end
 
   def all_courses
+<<<<<<< HEAD
     User.find(1).courses
+=======
+    User.find(params[:id]).courses
+>>>>>>> print chapter in course page
   end
 end
 
@@ -88,16 +92,18 @@ post "/course/edit/:id_course" do
   redirect "/course/edit/#{params[:id_course]}"
 end
 
-get '/chapter/add/:course_>id' do
+get '/chapter/add/:id' do
   @course = Course.find(params[:id])
   erb :"backend/add_chapter"
 end
 
 post '/chapter/add/:course_id' do
+    @user = User.find(params[:course_id])
+    @course = Course.find(params[:course_id])
     @chapter = Chapter.create({
     name: params[:chapter_name],
     description: params[:chapter_description],
-    course_id: @course_id
+    course_id: @course.id
     })
     redirect "/dashboard/#{@user.id}"
   end
