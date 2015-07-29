@@ -4,7 +4,11 @@
   padding: 20px;
 }
 
-::-webkit-input-placeholder {
+#index-banner input {
+  text-align:center;
+}
+
+#index-banner ::-webkit-input-placeholder {
   text-align:center;
 }
 
