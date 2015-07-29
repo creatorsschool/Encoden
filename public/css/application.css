@@ -1,32 +1,11 @@
-.navbar {
-  margin-bottom: 0px;
-}
-
-body .jumbotron {
-  border-radius: 0px;
-  background-image:url("../img/sketching.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.jumbotron input, select, textarea {
-    color: rgba(255,255,255,.84);
-}
-
 .black-layer {
   color: rgba(255,255,255,.84);
-  background-color: rgba(0,0,0,.5);
-}
-
-.footer-placeholder {
-  padding-bottom: 40px;
-}
-
-.testimonial {
-  width: 100%;
-  background-color: #009688;
-  color: rgba(255,255,255,.84);
+  background-color: rgba(0,0,0,.4);
   padding: 20px;
+}
+
+::-webkit-input-placeholder {
+  text-align:center;
 }
 
 .space-between {
