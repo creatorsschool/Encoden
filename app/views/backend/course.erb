@@ -10,15 +10,17 @@
                 <li><%= @course.duration %></li>
                 <li><%= @course.price %>€</li>
               </ul>
-              <ul>
+              <ol>
                 <h3>Chapters</h3>
                 <% @course.chapters.each do |chapter| %>
-                   <li>
-                    <%= chapter.name %>
-                    <%= chapter.description %>
-                  </li>
+                    <li><%= chapter.name %></li>
+                      <ul>
+                        <li><%= chapter.description %>
+                        <a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a>
+                        </li>
+                      </ul>
                 <% end %>
-              </ul>
+              </ol>
             </div>
             <div class="col-md-2"></div>
           </div>
