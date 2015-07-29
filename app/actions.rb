@@ -32,7 +32,7 @@ end
 
 get "/dashboard/:id_user" do
   @user = User.find(params[:id_user])
-  erb :"backend/dashboard"
+  erb :"backend/dashboard", :layout => :layout_admin
 end
 
 get "/user/edit/:id_user" do
