@@ -28,3 +28,7 @@ body .jumbotron {
   color: rgba(255,255,255,.84);
   padding: 20px;
 }
+
+.space-between {
+  padding-top: 10px;
+}

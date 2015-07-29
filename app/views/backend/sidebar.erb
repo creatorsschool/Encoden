@@ -7,9 +7,11 @@
 				<ul class="list-unstyled">
 					<% all_courses.each do |course| %>
 					<li><a href="/course/show/<%= course.id %>"><%= course.name %></a></li>
-					<li><a href="/chapter/add/<%= course.id %>"><span class="glyphicon glyphicon-plus"></span> Add Chapter</li>
 					<li><a href="/course/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Course</a></li>
-					<br>
+					<div class="space-between"></div>
+					<li><a href="/chapter/add/<%= course.id %>"><span class="glyphicon glyphicon-plus"></span> Add Chapter</li>
+					<li><a href="/chapter/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Chapters</li>
+					<hr>
 					<% end %>
 				</ul>
 				<br>

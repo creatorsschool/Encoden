@@ -101,6 +101,17 @@ post '/chapter/add/:course_id' do
     redirect "/dashboard/#{current_user.id}"
   end
 
+get '/chapter/edit/:id_course' do
+  @course = Course.find(params[:id_course])
+  @chapters = Course.find(params[:id_course]).chapters
+  erb :"backend/edit_chapter"
+end
+
+post '/chapter/edit/:id_course' do
+  Chapter.update(params[:id_course], params.slice("name", "description"))
+  redirect "/chapter/edit/#{params[:id_course]}"
+end
+
 # 404 Error!
 not_found do
 	status 404
