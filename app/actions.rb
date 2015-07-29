@@ -37,7 +37,7 @@ end
 
 get "/user/edit/:id_user" do
   @user = User.find(params[:id_user])
-  erb :"backend/edit_user"
+  erb :"backend/edit_user", :layout => :layout_admin
 end
 
 post "/user/edit/:id_user" do
@@ -47,7 +47,7 @@ end
 
 get "/course/new/:id_user" do
   @user = User.find(params[:id_user])
-  erb :"backend/add_course"
+  erb :"backend/add_course", :layout => :layout_admin
 end
 
 post "/course/add/:id_user" do
@@ -60,12 +60,6 @@ post "/course/add/:id_user" do
     user_id: params[:id_user]
     })
 
-  #@payment = Payment.create({
-    #payment_date: Date.today,
-    #paid: true,
-    #course_id: @course.id,
-    #user_id: @user.id
-    #})
   redirect "/dashboard/#{@user.id}"
 end
 
@@ -78,7 +72,7 @@ end
 
 get "/course/edit/:id_course" do
   @course = Course.find(params[:id_course])
-  erb :"backend/edit_course"
+  erb :"backend/edit_course", :layout => :layout_admin
 end
 
 post "/course/edit/:id_course" do
@@ -88,7 +82,7 @@ end
 
 get '/chapter/add/:id' do
   @course = Course.find(params[:id])
-  erb :"backend/add_chapter"
+  erb :"backend/add_chapter", :layout => :layout_admin
 end
 
 post '/chapter/add/:course_id' do
@@ -105,7 +99,7 @@ post '/chapter/add/:course_id' do
 get '/chapter/edit/:id_course' do
   @course = Course.find(params[:id_course])
   @chapters = Course.find(params[:id_course]).chapters
-  erb :"backend/edit_chapter"
+  erb :"backend/edit_chapter", :layout => :layout_admin
 end
 
 post '/chapter/edit/:id_course' do
