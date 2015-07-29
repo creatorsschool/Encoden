@@ -1,23 +1,18 @@
-<div class="row">
-	<div class="col-md-3">
-		<div class="well sidebar-nav">
-			<ul class="nav nav-list">
-				<li><a href="/course/new/<%= current_user.id %>"><span class="glyphicon glyphicon-plus"></span> Add a Course</a></li>
-				<br>
-				<ul class="list-unstyled">
-					<% all_courses.each do |course| %>
-					<li><a href="/course/show/<%= course.id %>"><%= course.name %></a></li>
-					<li><a href="/course/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Course</a></li>
-					<div class="space-between"></div>
-					<li><a href="/chapter/add/<%= course.id %>"><span class="glyphicon glyphicon-plus"></span> Add Chapter</a></li>
-					<li><a href="/chapter/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Chapters</a></li>
-					<hr>
-					<% end %>
-				</ul>
-				<div class="space-between"></div>
-				<li class="nav-header">My Profile</li>
-				<li><a href="/user/edit/<%= current_user.id %>">Edit</a></li>
-				<li><a href="#">Log Out</a></li>
-			</ul>
-		</div><!--/.well -->
-	</div><!--/span-->
+<ul class="nav nav-list">
+	<li><a href="/course/new/<%= current_user.id %>"><span class="glyphicon glyphicon-plus"></span> Add a Course</a></li>
+	<br>
+	<ul class="list-unstyled">
+		<% all_courses.each do |course| %>
+			<li><a href="/course/show/<%= course.id %>"><%= course.name %></a></li>
+			<li><a href="/course/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Course</a></li>
+			<div class="space-between"></div>
+			<li><a href="/chapter/add/<%= course.id %>"><span class="glyphicon glyphicon-plus"></span> Add Chapter</a></li>
+			<li><a href="/chapter/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Chapters</a></li>
+			<hr>
+		<% end %>
+	</ul>
+	<div class="space-between"></div>
+	<li class="nav-header">My Profile</li>
+	<li><a href="/user/edit/<%= current_user.id %>">Edit</a></li>
+	<li><a href="#">Log Out</a></li>
+</ul>
