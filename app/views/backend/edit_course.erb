@@ -1,24 +1,33 @@
-<div class="container-fluid">
-<%= erb :"backend/sidebar" %>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-10">
-              <h1>Let's edit your Course!</h1>
-                <form class="user-form" action="/course/edit/<%= @course.id %>" method="post">
-                <label for="name">Name</label>
-                  <input type="text" name="name" id="name" class="form-control" value="<%= @course.name %>" required>
-                  <label for="description">Description</label>
-                  <input type="textarea" name="description" class="form-control" value="<%= @course.description %>" id="description" required>
-                  <label for="duration">Duration</label>
-                  <input type="text" name="duration" class="form-control" value="<%= @course.duration %>" id="duration" required>
-                  <label for="price">Price</label>
-                  <input type="text" name="price" class="form-control" value="<%= @course.price %>" id="price" required>
-                  <button class="btn btn-primary" type="submit">
-                    Update
-                  </button>
-                </form>
-            </div>
-           <div class="col-md-2"></div>
-          </div>
-         </div>
-       </div>
+<div class="row">
+    <h1>Let's edit your Course!</h1>
+    <form class="col s12" action="/course/edit/<%= @course.id %>" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Course Name</label>
+          <input id="name" name="name" type="text" class="validate" value="<%= @course.name %>" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="description">Course Description</label>
+          <textarea id="description" name="description" class="materialize-textarea" required><%= @course.description %>
+          </textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="duration">Duration</label>
+          <input id="duration" name="duraton" type="number" value="<%= @course.duration %>" class="validate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="price">Course Price</label>
+          <input id="price" name="price" type="number" value="<%= @course.price %>" class="validate" required>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">
+        Edit
+      </button>
+    </form>
+  </div>

@@ -1,24 +1,23 @@
-<div class="container-fluid">
-<%= erb :"backend/sidebar" %>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-10">
-              <h1>Let's edit your Chapters!</h1>
-                <% @chapters.each do |chapter| %>
-                <p><%= chapter.name %></p>
-                <form class="user-form" action="/chapter/edit/<%= @course.id %>" method="post">
-                <label for="name">Name</label>
-                  <input type="text" name="name" id="name" class="form-control" value="<%= chapter.name %>" required>
-                <label for="description">Description</label>
-                  <input type="textarea" name="description" class="form-control" value="<%= chapter.description %>" id="description" required>
-                <button class="btn btn-primary" type="submit">
-                    Update
-                  </button>
-                </form>
-                <hr>
-                <% end %>
-            </div>
-           <div class="col-md-2"></div>
-          </div>
-         </div>
-       </div>
+<div class="row">
+    <h1>Let's edit your Chapters!</h1>
+    <% @chapters.each do |chapter| %>
+    <p><%= chapter.name %></p>
+    <form class="col s12" action="/chapter/edit/<%= @course.id %>" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Chapter Name</label>
+          <input id="name" name="name" value="<%= chapter.name %>" type="text" class="validate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="description">Chapter Description</label>
+          <textarea id="description" name="description" class="materialize-textarea" required><%= chapter.description %></textarea>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">
+        Edit
+      </button>
+    </form>
+  </div>
+  <% end %>
