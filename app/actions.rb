@@ -67,7 +67,7 @@ end
 get "/course/show/:id_course" do
   @course = Course.find(params[:id_course])
   @chapters = Course.find(params[:id_course]).chapters
-  erb :"backend/course", locals: { x: 1 }
+  erb :"backend/course", locals: { x: 1 }, :layout => :layout_admin
 end
 
 get "/course/edit/:id_course" do
