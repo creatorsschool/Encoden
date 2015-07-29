@@ -1,6 +1,6 @@
 <div class="row">
     <h1>Please add a chapter here</h1>
-    <form class="col s12" action="/chapter/add/<%= @course.id %>" method="post">
+    <form class="col s12" action="/chapter/add/<%= @course.id %>" method="post" onsubmit="myButton.disabled = true; return true;">
       <div class="row">
         <div class="input-field col s6">
           <label for="chapter_name">Chapter Name</label>
@@ -13,7 +13,7 @@
           <textarea id="chapter_description" name="chapter_description" class="materialize-textarea" required></textarea>
         </div>
       </div>
-      <button class="waves-effect waves-light btn" type="submit">
+      <button class="waves-effect waves-light btn" type="submit" name="myButton">
         Add
       </button>
     </form>
