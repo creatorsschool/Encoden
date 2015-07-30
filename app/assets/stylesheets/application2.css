@@ -1,0 +1,17 @@
+.black-layer {
+  color: rgba(255,255,255,.84);
+  background-color: rgba(0,0,0,.4);
+  padding: 20px;
+}
+
+#index-banner input {
+  text-align:center;
+}
+
+#index-banner ::-webkit-input-placeholder {
+  text-align:center;
+}
+
+.space-between {
+  padding-top: 10px;
+}
