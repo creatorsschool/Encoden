@@ -102,15 +102,14 @@ get '/chapter/edit/:id_course' do
   erb :"backend/edit_chapter", :layout => :layout_admin
 end
 
-post '/chapter/edit/:id_course' do
-  Chapter.update(params[:id_course], params.slice("name", "description"))
-  redirect "/chapter/edit/#{params[:id_course]}"
+post '/chapter/edit/:id_course/:id_chapter' do
+  Chapter.update(params[:id_chapter], params.slice("name", "description"))
+  redirect "/course/show/#{params[:id_course]}"
 end
 
-  get '/chapter/delete/:chapter_id' do 
+  get '/chapter/delete/:chapter_id' do
     @course = Chapter.find(params[:chapter_id]).course_id
     Chapter.destroy(params[:chapter_id])
-    
     redirect "/course/show/#{@course}"
   end
 
