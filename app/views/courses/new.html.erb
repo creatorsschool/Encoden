@@ -1,8 +1,8 @@
 <div class="row">
-    <h1>Hello <%= @user.name %>!</h1>
+    <h1>Hello <%= current_user.name %>!</h1>
     <p>Let's get started with the creation of a new course.</p>
     <p>Please add your course name and a description of what your want to teach:</p>
-    <form class="col s12" action="/course/add/<%= @user.id %>" method="post">
+    <form class="col s12" action="/course/add/<%= current_user.id %>" method="post">
       <div class="row">
         <div class="input-field col s6">
           <label for="name">Course Name</label>
