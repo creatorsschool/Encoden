@@ -1,1 +1,6 @@
-<h1>HELOOEOEO</h1>
+<%= @courses.each do |course| %>
+<h1><%= course.name %></h1>
+<p><%= course.description %></p>
+<p><%= course.duration %></p>
+<p><%= course.price %></p>
+<% end %>\

@@ -9,17 +9,17 @@ class CoursesController < ApplicationController
 	end
 
 	def new
-
+		@course = Course.new
 	end
 
 	def create
-		Course.create(post_params)
+	 Course.create(course_params)
 		redirect_to courses_path
 	end
 
 	private
 
-	def post_params
+	def course_params
 		params.require(:course).permit(:name, :description, :duration, :price)
 	end
 end
