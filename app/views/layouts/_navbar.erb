@@ -2,9 +2,20 @@
     <div class="nav-wrapper  teal darken-1">
       <a href="#" class="brand-logo">Encoden</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Dashboard</a></li>
+          <% if signed_in? %>
+            <li>Signed in as: <%= current_user.email %></li>
+          <% else %>
+            <li class="teal darken">
+            <%= link_to 'Sign in', sign_in_path %>
+          <% end %>
+        </li>
         <li><a href="#">Help</a></li>
         <li><a href="#">Contact</a></li>
+        <li class="teal darken">
+        <% if signed_in? %>
+        <%= link_to 'Sign out', sign_out_path, method: :delete %>
+        <% else %>
+        <% end %>
       </ul>
     </div>
   </nav>
