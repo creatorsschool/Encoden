@@ -6,21 +6,7 @@
 				<h5 class="header col s12 light">Ready to create some killer e-learning lessons without worrying about code?</h5>
 			</div>
 			<div class="row center">
-
-
-				<%= form_tag("/user/add", method: "post", class:"user-form") do %>
-					<%= label_tag(:email) %>
-					<%= email_field(:email, class: "form-control" ,required: true) %>
-					<%= button_tag("Sign Up", class: "btn-large waves-effect waves-light teal lighten-1") %>
-					<button class="btn-large waves-effect waves-light teal lighten-1" type="submit">
-						Sign Up
-					</button>
-				<% end %>
-<!--
-				<form class="user-form" action="/user/add" method="post">
-					<input type="email" name="email" class="form-control" placeholder="Here's my e-mail, sign me up!" required>
-				</form>
--->
+				<%=link_to("Sign Up", sign_up_path, class: "btn-large waves-effect waves-light teal lighten-1") %>
 			</div>
 		</div>
 	</div>
