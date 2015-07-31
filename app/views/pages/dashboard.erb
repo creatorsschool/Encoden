@@ -3,9 +3,9 @@
           <div class="row">
             <div class="col-sm-4 col-md-4">
               <h2>Heading</h2>
-              <p>Name: <%= @user.name %><br>
-                Email: <%= @user.email %><br>
-                Date of creation:<br> <%= @user.created_at %><br> </p>
+              <p>Name: <%= current_user.name %><br>
+                Email: <%= current_user.email %><br>
+                Date of creation:<br> <%= current_user.created_at %><br> </p>
               <p><a class="btn btn-default" href="#">View details »</a></p>
             </div><!--/span-->
             <div class="col-sm-4 col-md-4">
