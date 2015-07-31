@@ -1,3 +1,6 @@
+
+
+/*Homepage*/
 .black-layer {
   color: rgba(255,255,255,.84);
   background-color: rgba(0,0,0,.4);
@@ -14,4 +17,10 @@
 
 .space-between {
   padding-top: 10px;
+}
+
+/*Parallax*/
+.parallax img{
+	display: block;
+	transform: translate3d(-50%, 161px, 0px);
 }
