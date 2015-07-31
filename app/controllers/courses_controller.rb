@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
 	def index
-		@courses = Course.all
+		@courses = current_user.courses
 	end
 
 	def show
@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-	 Course.create(course_params)
+	 current_user.courses.create(course_params)
 		redirect_to courses_path
 	end
 
