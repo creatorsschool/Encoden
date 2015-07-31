@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
+			<!-- Normalize -->
+		<link href="/css/normalize/normalize.min.css" rel="stylesheet">
+		<!-- Materialize -->
+		<link rel="stylesheet" href="/css/materialize/materialize.min.css">
+		<!-- Custom CSS -->
+		<link href="/css/application.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<title>Your E-learning platform | @title </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 		<title>Encoden</title>
+
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
 	</head>
+
 	<body>
 
 	<%= render "layouts/navbar" %>
@@ -18,5 +30,9 @@
 
 	<%= yield %>
 	<%= render "layouts/footer" %>
+		<!-- Aplication javascript -->
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize/materialize.min.js"></script>
+    <script src="/js/application.js"></script>
 	</body>
 </html>
