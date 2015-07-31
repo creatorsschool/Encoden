@@ -1,0 +1,33 @@
+<div class="row">
+    <h1>Let's edit your Course!</h1>
+    <form class="col s12" action="/course/edit/<%= @course.id %>" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Course Name</label>
+          <input id="name" name="name" type="text" class="validate" value="<%= @course.name %>" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="description">Course Description</label>
+          <textarea id="description" name="description" class="materialize-textarea" required><%= @course.description %>
+          </textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="duration">Duration</label>
+          <input id="duration" name="duraton" type="number" value="<%= @course.duration %>" class="validate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="price">Course Price</label>
+          <input id="price" name="price" type="number" value="<%= @course.price %>" class="validate" required>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">
+        Edit
+      </button>
+    </form>
+  </div>

@@ -1,0 +1,23 @@
+<div class="row">
+    <h1>Let's edit your Chapters!</h1>
+    <% @chapters.each do |chapter| %>
+    <p><%= chapter.name %></p>
+    <form class="col s12" action="/chapter/edit/<%= @course.id %>/<%= chapter.id %>" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Chapter Name</label>
+          <input id="name" name="name" value="<%= chapter.name %>" type="text" class="validate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="description">Chapter Description</label>
+          <textarea id="description" name="description" class="materialize-textarea" required><%= chapter.description %></textarea>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">
+        Edit
+      </button>
+    </form>
+  </div>
+  <% end %>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-10">
+              <h1><%= @course.name %></h1>
+              <ul>
+                <li><%= @course.description %></li>
+                <li><%= @course.duration %></li>
+                <li><%= @course.price %>€</li>
+              </ul>
+              <ol>
+                <h3>Chapters</h3>
+                <% @course.chapters.each do |chapter| %>
+                    <li><%= chapter.name %></li>
+                      <ul>
+                        <li><%= chapter.description %>
+                        <a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a>
+                        </li>
+                      </ul>
+                <% end %>
+              </ol>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+        </div>

@@ -1,0 +1,20 @@
+<div class="row">
+    <h1>Let's edit your profile!</h1>
+    <form class="col s12" action="/user/edit/<%= @user.id %>" method="post">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" class="validate" value="<%= @user.name %>" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="text" class="validate" value="<%= @user.email %>" required>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">
+        Update
+      </button>
+    </form>
+  </div>

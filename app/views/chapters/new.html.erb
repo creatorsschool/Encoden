@@ -1,0 +1,20 @@
+<div class="row">
+    <h1>Please add a chapter here</h1>
+    <form class="col s12" action="/chapter/add/<%= @course.id %>" method="post" onsubmit="myButton.disabled = true; return true;">
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="chapter_name">Chapter Name</label>
+          <input id="chapter_name" name="chapter_name" type="text" class="validate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="chapter_description">Chapter Description</label>
+          <textarea id="chapter_description" name="chapter_description" class="materialize-textarea" required></textarea>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit" name="myButton">
+        Add
+      </button>
+    </form>
+  </div>
