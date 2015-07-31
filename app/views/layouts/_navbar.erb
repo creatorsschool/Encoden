@@ -5,13 +5,13 @@
           <% if signed_in? %>
             <li>Signed in as: <%= current_user.email %></li>
           <% else %>
-            <li class="teal darken">
+            <li>
             <%= link_to 'Sign in', sign_in_path %>
           <% end %>
         </li>
         <li><a href="#">Help</a></li>
         <li><a href="#">Contact</a></li>
-        <li class="teal darken">
+        <li>
         <% if signed_in? %>
         <%= link_to 'Sign out', sign_out_path, method: :delete %>
         <% else %>
