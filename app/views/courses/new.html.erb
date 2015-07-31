@@ -1,34 +1,24 @@
 <div class="row">
-    <h1>Hello <%= @user.name %>!</h1>
-    <p>Let's get started with the creation of a new course.</p>
-    <p>Please add your course name and a description of what your want to teach:</p>
-    <form class="col s12" action="/course/add/<%= @user.id %>" method="post">
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="name">Course Name</label>
-          <input id="name" name="name" type="text" class="validate" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="description">Course Description</label>
-          <textarea id="description" name="description" class="materialize-textarea" required></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="duration">Duration</label>
-          <input id="duration" name="duration" type="number" class="validate" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="price">Course Price</label>
-          <input id="price" name="price" type="text" class="validate" required>
-        </div>
-      </div>
-      <button class="waves-effect waves-light btn" type="submit">
-        Add
-      </button>
-    </form>
-  </div>
+	<h1>Hello <%= current_user.name %>!</h1>
+	<p>Let's get started with the creation of a new course.</p>
+	<p>Please add your course name and a description of what your want to teach:</p>
+	<%= form_for :course, url: courses_path, class: "col s12" do |f| %>
+		<div class="row">
+			<div class="input-field col s6"n>
+				<%= f.label :name, "Course Name" %>
+				<%= f.text_field :name, class: "validate", required: true %>
+			</div>
+
+			<%= f.label :description, "Course Description" %>
+			<%= f.text_area :description, class: "validate", required: true %>
+
+			<%= f.label :duration, "Course Duration" %>
+			<%= f.number_field :duration, class: "validate", required: true %>
+
+			<%= f.label :price, "Course Price" %>
+			<%= f.text_field :price, class: "validate", required: true %>
+			<%= f.submit "Create", class: "btn" %>
+
+	<% end %>
+		</div>
+</div>
