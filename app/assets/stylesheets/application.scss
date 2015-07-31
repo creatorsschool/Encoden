@@ -1,6 +1,7 @@
 /*
  *= require normalize/normalize
- *= require materialize/materialize
  *= require_tree .
  *= require_self
  */
+
+@import "materialize";

@@ -5,7 +5,7 @@
 		<!-- Custom CSS -->
 		<%= stylesheet_link_tag    "application" %>
 		<title>Your E-learning platform | @title </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 		<title>Encoden</title>
 
@@ -16,17 +16,18 @@
 
 	<body>
 
-	<%= render "layouts/navbar" %>
+		<%= render "layouts/navbar" %>
 
-	<div id="flash">
-		<% flash.each do |key, value| %>
-			<div class="flash <%= key %>"><%= value %></div>
-		<% end %>
-	</div>
+		<div id="flash">
+			<% flash.each do |key, value| %>
+				<div class="flash <%= key %>"><%= value %></div>
+			<% end %>
+		</div>
 
-	<%= yield %>
-	<%= render "layouts/footer" %>
-		<!-- Aplication javascript -->
+		<%= yield %>
+		<%= render "layouts/footer" %>
+
+		<!-- Javascript -->
 		<%= javascript_include_tag "application" %>
 	</body>
 </html>
