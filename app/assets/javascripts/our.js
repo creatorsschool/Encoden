@@ -1,7 +1,10 @@
 $(document).ready(function() {
-    $('.parallax').parallax();
+	// Parallax effect
+  $('.parallax').parallax();
 
-  }); // end of document ready
+	// Mobile navbar
+	$(".button-collapse").sideNav();
+}); // end of document ready
 
 // $(document).ready(function() {
 //   var max_fields      = 10; //maximum input boxes allowed
