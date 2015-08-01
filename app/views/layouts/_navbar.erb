@@ -1,9 +1,10 @@
 <nav>
     <div class="nav-wrapper teal darken-1">
       <a href="/" class="brand-logo">Encoden</a>
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if signed_in? %>
-            <li>Signed in as: <%= current_user.email %></li>
+            <li> <%= current_user.email %></li>
           <% else %>
             <li>
             <%= link_to 'Sign in', sign_in_path %>
