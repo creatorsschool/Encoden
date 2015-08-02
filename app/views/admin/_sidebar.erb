@@ -1,15 +1,21 @@
-<ul class="nav nav-list">
-	<li><a href="/course/new/<%= current_user.id %>"><span class="glyphicon glyphicon-plus"></span> Add a Course</a></li>
-	<ul class="list-unstyled">
-		<% all_courses.each do |course| %>
-			<li><a href="/course/show/<%= course.id %>"><%= course.name %></a></li>
-			<li><a href="/course/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Course</a></li>
-			<li><a href="/chapter/add/<%= course.id %>"><span class="glyphicon glyphicon-plus"></span> Add Chapter</a></li>
-			<li><a href="/chapter/edit/<%= course.id %>"><span class="glyphicon glyphicon-pencil"></span> Edit Chapters</a></li>
-			<hr>
-		<% end %>
+<%= link_to 'New Course', new_course_path, class: "btn" %>
+	
+	  <% @courses.each do |course| %>
+	  	<ul class="list-unstyled">
+	  		<li>Course Name: <%= course.name %></li>
+	  		<li>Course Description: <%= course.description %> </li>
+	  		<li>Course Duration: <%= course.duration %> </li>
+	  		<li>Course Price: <%= course.price %> </li>
+	    <%= link_to 'Show', course_path(course.id) %><br>
+	    <%= link_to 'Edit', edit_course_path(course.id) %><br>
+	    <%= link_to 'Delete', course_path(course),
+	              method: :delete,
+	              data: { confirm: 'Do you really want to delete?' } %>
+	  <% end %>
 	</ul>
-	<li class="nav-header">My Profile</li>
-	<li><a href="/user/edit/<%= current_user.id %>">Edit</a></li>
-	<li><a href="#">Log Out</a></li>
-</ul>
+	<hr>
+	<ul class="list-unstyled">
+		<li class="nav-header">My Profile</li>
+		<li><a href="/user/edit/<%= current_user.id %>">Edit</a></li>
+		<li><a href="#">Log Out</a></li>
+	</ul>
