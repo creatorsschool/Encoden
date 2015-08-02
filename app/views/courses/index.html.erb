@@ -1,14 +1,16 @@
-<button class="btn btn-default"><%= link_to 'New Course', new_course_path %></button>
+<button class="btn waves-effect waves-light teal lighten-1"><%= link_to 'New Course', new_course_path %></button>
 
 <div>
   <% @courses.each do |course| %>
-    <h2>Course Name: <%= course.name %></h2>
+    <h4>Course Name: <%= course.name %></h4>
     <p>Course Description: <%= course.description %></p>
     <p>Course Duaration: <%= course.duration %></p>
     <p>Course Price: <%= course.price %></p>
     <%= link_to 'Show', course_path(course.id) %><br>
     <%= link_to 'Edit', edit_course_path(course.id) %><br>
-    <%= link_to 'Delete', course_path(course.id) %><br>
+    <%= link_to 'Delete', course_path(course),
+              method: :delete,
+              data: { confirm: 'Do you really want to delete?' } %>
   <% end %>
 </div>
 
