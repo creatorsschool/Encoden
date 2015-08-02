@@ -1,18 +1,18 @@
 <%= form_for :session, url: session_path do |form| %>
-		<div class="row">
-			<div class="input-field">
-				<%= form.label :email %>
-				<%= form.text_field :email, class: 'validate', type: 'email' %>
-			</div>
+	<div class="row">
+		<div class="input-field">
+			<%= form.label :email %>
+			<%= form.text_field :email, class: 'validate', type: 'email' %>
 		</div>
-		<div class="row">
-			<div class="input-field">
-				<%= form.label :password %>
-				<%= form.password_field :password, class: 'validate' %>
-			</div>
+	</div>
+	<div class="row">
+		<div class="input-field">
+			<%= form.label :password %>
+			<%= form.password_field :password, class: 'validate' %>
 		</div>
-		<div>
-			<%= form.submit class: "btn" %>
+	</div>
+	<div class="row">
+		<%= form.submit class: "btn" %>
 	</div>
 
 	<div class="row form-margin">
@@ -20,5 +20,5 @@
 			<%= link_to t(".sign_up"), sign_up_path %> |
 		<% end %>
 		<%= link_to t(".forgot_password"), new_password_path %>
-<% end %>
+	<% end %>
 	</div>
