@@ -7,7 +7,7 @@
     <p>Course Duaration: <%= course.duration %></p>
     <p>Course Price: <%= course.price %></p>
     <%= link_to 'Show', course_path(course.id) %><br>
-    <%= link_to 'Edit', course_path(course.id) %><br>
+    <%= link_to 'Edit', edit_course_path(course.id) %><br>
     <%= link_to 'Delete', course_path(course.id) %><br>
   <% end %>
 </div>

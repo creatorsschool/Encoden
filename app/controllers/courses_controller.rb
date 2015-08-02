@@ -8,6 +8,15 @@ class CoursesController < ApplicationController
 		@course = current_user.courses.find(params[:id])
 	end
 
+	def edit
+		@course = current_user.courses.find(params[:id])
+	end
+
+	def update
+    Course.find(params[:id]).update(course_params)
+    redirect_to courses_path
+ 	end
+
 	def new
 		@course = Course.new
 	end
