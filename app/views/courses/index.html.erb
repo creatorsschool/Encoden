@@ -1,6 +1,20 @@
-<% @courses.each do |course| %>
-<h1><%= course.name %></h1>
-<p><%= course.description %></p>
-<p><%= course.duration %></p>
-<p><%= course.price %></p>
-<% end %>
+<button class="btn btn-default"><%= link_to 'New Course', new_course_path %></button>
+
+<div>
+  <% @courses.each do |course| %>
+    <h2>Course Name: <%= course.name %></h2>
+    <p>Course Description: <%= course.description %></p>
+    <p>Course Duaration: <%= course.duration %></p>
+    <p>Course Price: <%= course.price %></p>
+    <%= link_to 'Show', course_path(course.id) %><br>
+    <%= link_to 'Edit', course_path(course.id) %><br>
+    <%= link_to 'Delete', course_path(course.id) %><br>
+  <% end %>
+</div>
+
+
+
+
+
+
+
