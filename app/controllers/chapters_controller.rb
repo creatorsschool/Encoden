@@ -14,6 +14,11 @@ class ChaptersController < ApplicationController
     @chapter = Course.find(params[:course_id]).chapters.find(params[:id])
   end
 
+  def update
+    @course = Course.find(params[:course_id]).chapters.find(params[:id]).update(chapter_params)
+    redirect_to courses_path
+  end
+
   private
 
   def chapter_params
