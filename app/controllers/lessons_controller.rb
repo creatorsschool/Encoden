@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
 	end
 
 	def edit
-
+		@course = current_user.courses.find(params[:id])
 	end
 
 	def update
@@ -30,4 +30,3 @@ class LessonsController < ApplicationController
 	end
 
 end
-
