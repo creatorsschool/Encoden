@@ -5,8 +5,8 @@ class LessonsController < ApplicationController
 	end
 
 	def show
-		@course = current_user.courses
-		@course = current_user.courses.find(params[:id])
+
+		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
 	def edit
@@ -23,8 +23,8 @@ class LessonsController < ApplicationController
 	end
 
 	def create
-    Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).create(lesson_params)
-    redirect_to course_chapter_lesson_path
+    lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.create(lesson_params)
+    redirect_to course_chapter_lesson_path(params[:course_id], params[:chapter_id], lesson)
 	end
 
 	def destroy
