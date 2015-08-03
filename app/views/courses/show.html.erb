@@ -15,6 +15,9 @@
 							<%= chapter.name %>
 							<%= chapter.description %>
 							<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
+								    <%= link_to 'Delete', course_chapter_path(@course, chapter), class: "btn",
+	              method: :delete,
+	              data: { confirm: 'Do you really want to delete?' } %>
 						</li>
 					<% end %>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
