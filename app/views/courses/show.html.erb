@@ -12,12 +12,10 @@
 					<h3>Chapters</h3>
 					<% @course.chapters.each do |chapter| %>
 						<li><%= chapter.name %></li>
-						<ul>
-							<li><%= chapter.description %>
-							<a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a>
-							</li>
-						</ul>
+						<li><%= chapter.description %></li>
 					<% end %>
+					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+					<%= link_to 'Edit Chapter', edit_course_chapter_path(@course.id), class: "btn" %>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>
