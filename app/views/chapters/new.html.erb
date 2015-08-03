@@ -1,20 +1,18 @@
 <div class="row">
-    <h1>Please add a chapter here</h1>
-    <form class="col s12" action="/chapter/add/<%= @course.id %>" method="post" onsubmit="myButton.disabled = true; return true;">
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="chapter_name">Chapter Name</label>
-          <input id="chapter_name" name="chapter_name" type="text" class="validate" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="chapter_description">Chapter Description</label>
-          <textarea id="chapter_description" name="chapter_description" class="materialize-textarea" required></textarea>
-        </div>
-      </div>
-      <button class="waves-effect waves-light btn" type="submit" name="myButton">
-        Add
-      </button>
-    </form>
-  </div>
+  <h1>Please add your chapter here!</h1>
+
+  <%= form_for :chapter, url: course_chapters_path, class: "col s12" do |f| %>
+    <div class="row">
+        <p>
+        <div class="input-field col s6"n>
+        <%= f.label :name, "Chapter Name" %>
+        <%= f.text_field :name, class: "validate", required: true %>
+        </p>
+        <p>
+        <div class="input-field col s6"n>
+        <%= f.label :description, "Chapter Description" %>
+        <%= f.text_area :description, class: "validate", required: true %>
+        </p>
+      <%= f.submit "Create", class: "btn" %>
+      <% end %>
+    </div>

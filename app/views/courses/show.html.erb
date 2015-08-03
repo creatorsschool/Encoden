@@ -9,15 +9,18 @@
 					<li><%= @course.price %>€</li>
 				</ul>
 				<ol>
-					<h3>Chapters</h3>
 					<% @course.chapters.each do |chapter| %>
-						<li><%= chapter.name %></li>
-						<ul>
-							<li><%= chapter.description %>
-							<a href="/chapter/delete/<%= chapter.id %>" <i class="material-icons">delete</i></a>
-							</li>
-						</ul>
+					<h3><%= link_to "Chapters", course_chapter_path(@course, chapter) %></h3>
+						<li>
+							<%= chapter.name %>
+							<%= chapter.description %>
+							<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
+								    <%= link_to 'Delete', course_chapter_path(@course, chapter), class: "btn",
+	              method: :delete,
+	              data: { confirm: 'Do you really want to delete?' } %>
+						</li>
 					<% end %>
+					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>
