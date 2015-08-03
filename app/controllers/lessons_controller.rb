@@ -14,7 +14,8 @@ class LessonsController < ApplicationController
 	end
 
 	def update
-
+    Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).update(lesson_params)
+    redirect_to course_chapter_lesson_path
 	end
 
 	def new
@@ -27,6 +28,14 @@ class LessonsController < ApplicationController
 
 	def destroy
 
+	end
+
+
+
+	private
+
+	def lesson_params
+		params.require(:lesson).permit(:name, :description)
 	end
 
 end
