@@ -19,11 +19,23 @@
 	              method: :delete,
 	              data: { confirm: 'Do you really want to delete?' } %>
 						</li>
+							<ol>
+								<h3>Lessons</h3>
+								<% chapter.lessons.each do |lesson| %>
+									<li>
+										Name: <%= lesson.name %>
+										<ul>
+											<li>
+												Description: <%= lesson.description %>
+											</li>
+									</ul>
+								</li>
+								<% end %>
+							</ol>
 					<% end %>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</ol>
 			</div>
-			<div class="col-md-2"></div>
 		</div>
 	</div>
 </div>
