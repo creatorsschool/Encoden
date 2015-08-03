@@ -19,11 +19,12 @@ class LessonsController < ApplicationController
 	end
 
 	def new
-		@lesson = Lesson.new
+		Lesson.new
 	end
 
 	def create
-
+    Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).create(lesson_params)
+    redirect_to course_chapter_lesson_path
 	end
 
 	def destroy
