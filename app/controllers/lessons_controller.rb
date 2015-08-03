@@ -1,10 +1,12 @@
 class LessonsController < ApplicationController
 
 	def index
-		@lesson = current_user.lessons
+		@courses = current_user.courses # needed for sidebar
 	end
 
 	def show
+		@course = current_user.courses
+		@course = current_user.courses.find(params[:id])
 	end
 
 	def edit

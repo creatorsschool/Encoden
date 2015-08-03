@@ -2,23 +2,7 @@
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-10">
-				<h1><%= @course.name %></h1>
-				<ul>
-					<li><%= @course.description %></li>
-					<li><%= @course.duration %></li>
-					<li><%= @course.price %>€</li>
-				</ul>
-				<ol>
-					<h3>Chapters</h3>
 					<% @course.chapters.each do |chapter| %>
-						<li>
-							<%= chapter.name %>
-							<ul>
-								<li>
-									<%= chapter.description %>
-								</li>
-							</ul>
-						</li>
 						<ol>
 							<h3>Lessons</h3>
 							<% chapter.lessons.each do |lesson| %>
@@ -33,7 +17,6 @@
 							<% end %>
 						</ol>
 					<% end %>
-				</ol>
 			</div>
 		</div>
 	</div>
