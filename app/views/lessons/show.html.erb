@@ -2,17 +2,18 @@
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-10">
-						<ol>
-							<h3>Lessons</h3>
-								<li>
-									Name: <%= @lesson.name %>
-								<ul>
-									<li>
-										Description: <%= @lesson.description %>
-								</li>
-								</ul>
-								</li>
-						</ol>
+				<ol>
+					<h3>Lessons</h3>
+					<li>
+						Name: <%= @lesson.name %>
+					<%= link_to "Delete", course_chapter_lesson_path(), class: "btn", method: :delete %>
+					<ul>
+						<li>
+							Description: <%= @lesson.description %>
+					</li>
+					</ul>
+					</li>
+				</ol>
+			</div>
 		</div>
 	</div>
-</div>
