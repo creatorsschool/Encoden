@@ -1,0 +1,41 @@
+<div class="row">
+  <h1>Let's Edit Your Course!</h1>
+  <%= form_for @course do |f| %>
+  <p>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+  </p>
+  <p>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+    </div>
+  </p>
+  <p>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :duration %><br>
+        <%= f.number_field :duration %>
+      </div>
+    </div>
+  </p>
+  <p>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= f.label :price %><br>
+        <%= f.text_field :price %>
+      </div>
+    </div>
+  </p>
+  <p>
+    <%= f.submit class: "btn" %>
+  </p>
+  <% end %>
+
+  <%= link_to 'Index', courses_path %>

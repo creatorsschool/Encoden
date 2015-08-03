@@ -1,5 +1,8 @@
 class LessonsController < ApplicationController
 
+	def index
+		@lesson = current_user.lessons
+	end
 
 	def show
 	end
