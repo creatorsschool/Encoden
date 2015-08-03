@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 			resources :lessons
 		end
 	end
+	resources :users
 	root to: 'pages#index'
 
 end
