@@ -8,7 +8,11 @@
 
 User.destroy_all
 Course.destroy_all
+Chapter.destroy_all
+Lesson.destroy_all
 
-user = User.create(email: 'admin@gmail.com', password: 'teste')
+User.create(email: 'admin@gmail.com', password: 'teste')
 
-
+Course.create(name: "Course 1", description: "This is first Course", duration: 10, price: 200, user_id: 1)
+Chapter.create(name: "Chapter 1", description: "First Chapter from course 1", course_id: 1)
+Lesson.create(name: "Lesson 1", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 1)
