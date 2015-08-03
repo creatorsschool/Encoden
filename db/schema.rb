@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731091838) do
+ActiveRecord::Schema.define(version: 20150803161409) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20150731091838) do
     t.boolean  "paid",         default: false
     t.integer  "course_id"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "file"
+    t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

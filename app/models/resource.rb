@@ -1,3 +1,4 @@
 class Resource < ActiveRecord::Base
-  belongs to :lesson
+  belongs_to :lesson
+	mount_uploader :file, ::LessonResourcesUploader
 end

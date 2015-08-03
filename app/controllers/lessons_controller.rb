@@ -14,7 +14,12 @@ class LessonsController < ApplicationController
 	end
 
 	def update
-    Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).update(lesson_params)
+    lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		if params[:resource]
+			lesson.resources.create(resource_params)
+		else
+			lesson.update(lesson_params)
+		end
     redirect_to course_chapter_lesson_path
 	end
 
@@ -38,6 +43,10 @@ class LessonsController < ApplicationController
 
 	def lesson_params
 		params.require(:lesson).permit(:name, :description)
+	end
+
+	def resource_params
+		params.require(:resource).permit(:file)
 	end
 
 end
