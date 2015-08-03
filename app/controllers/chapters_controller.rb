@@ -10,6 +10,10 @@ class ChaptersController < ApplicationController
     redirect_to course_path(@course)
   end
 
+  def edit
+    @chapter = Course.find(params[:course_id]).chapters.find(params[:id])
+  end
+
   private
 
   def chapter_params

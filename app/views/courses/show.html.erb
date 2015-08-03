@@ -11,11 +11,13 @@
 				<ol>
 					<h3>Chapters</h3>
 					<% @course.chapters.each do |chapter| %>
-						<li><%= chapter.name %></li>
-						<li><%= chapter.description %></li>
+						<li>
+							<%= chapter.name %>
+							<%= chapter.description %>
+							<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
+						</li>
 					<% end %>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
-					<%= link_to 'Edit Chapter', edit_course_chapter_path(@course.id), class: "btn" %>
 				</ol>
 			</div>
 			<div class="col-md-2"></div>
