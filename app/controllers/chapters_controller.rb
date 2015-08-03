@@ -4,6 +4,10 @@ class ChaptersController < ApplicationController
     Chapter.new
   end
 
+  def show
+    @chapter = Chapter.find(params[:id])
+  end
+
   def create
     @course = Course.find(params[:course_id])
     @chapter = @course.chapters.create(chapter_params)

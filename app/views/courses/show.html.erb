@@ -9,8 +9,8 @@
 					<li><%= @course.price %>€</li>
 				</ul>
 				<ol>
-					<h3>Chapters</h3>
 					<% @course.chapters.each do |chapter| %>
+					<h3><%= link_to "Chapters", course_chapter_path(@course, chapter) %></h3>
 						<li>
 							<%= chapter.name %>
 							<%= chapter.description %>
