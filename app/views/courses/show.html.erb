@@ -34,6 +34,20 @@
 					</ol>
 				<% end %>
 				<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+				</li>
+				<ol>
+					<% chapter.lessons.each do |lesson| %>
+						<%= link_to "Lessons", course_chapter_lesson_path(@course, chapter, lesson) %>
+						<li>
+							Name: <%= lesson.name %>
+						<ul>
+							<li>
+								Description: <%= lesson.description %>
+						</li>
+						</ul>
+						</li>
+					<% end %>
+				</ol>
 				</ol>
 			</div>
 		</div>
