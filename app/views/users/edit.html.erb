@@ -1,22 +1,10 @@
-<div class="row">
-  <div class="col s8 offset-s2">
-    <h1>Let's edit your profile!</h1>
-    <form class="col s12" action="/user/edit/<%= @user.id %>" method="post">
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" class="validate" value="<%= @user.name %>" required>
+<div class="sign-form row">
+  <div class="col l4 m6 s10 offset-l4 offset-m3 offset-s1">
+    <div class="card-panel hoverable">
+      <h4 class="center-align">Edit your profile</h4>
+      <%= form_for @user do |form| %>
+        <%= render partial: '/users/form', object: form %>
+        <% end %>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="text" class="validate" value="<%= @user.email %>" required>
-        </div>
-      </div>
-      <button class="waves-effect waves-light btn" type="submit">
-        Update
-      </button>
-    </form>
+    </div>
   </div>
-</div>
