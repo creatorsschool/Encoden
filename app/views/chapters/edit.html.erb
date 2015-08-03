@@ -1,13 +1,13 @@
 <%= form_for @chapter, url: course_chapter_path do |f| %>
-  <div class="row">
-      <div class="input-field col s6"n>
-        <%= f.label :name, "Chapter Name" %>
-        <%= f.text_field :name, class: "validate", required: true %>
-      </div>
-      <div class="input-field col s6"n>
-        <%= f.label :description, "Chapter Description" %>
-        <%= f.text_area :description, class: "validate", required: true %>
-      </div>
-    <%= f.submit "Update", class: "btn" %>
-  </div>
+	<div class="row">
+		<div class="input-field col s6"n>
+			<%= f.label :name, "Chapter Name" %>
+			<%= f.text_field :name, class: "validate", required: true %>
+		</div>
+		<div class="input-field col s6"n>
+			<%= f.label :description, "Chapter Description" %>
+			<%= f.text_area :description, class: "validate", required: true %>
+		</div>
+		<%= f.submit "Update", class: "btn" %>
+	</div>
 <% end %>

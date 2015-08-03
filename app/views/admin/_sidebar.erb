@@ -1,17 +1,17 @@
 <%= link_to 'New Course', new_course_path, class: "btn" %>
-	
-	  <% @courses.each do |course| %>
-	  	<ul class="list-unstyled">
-	  		<li>Course Name: <%= course.name %></li>
-	  		<li>Course Description: <%= course.description %> </li>
-	  		<li>Course Duration: <%= course.duration %> </li>
-	  		<li>Course Price: <%= course.price %> </li>
-	    <%= link_to 'Show', course_path(course.id) %><br>
-	    <%= link_to 'Edit', edit_course_path(course.id) %><br>
-	    <%= link_to 'Delete', course_path(course),
-	              method: :delete,
-	              data: { confirm: 'Do you really want to delete?' } %>
-	  <% end %>
+
+<% @courses.each do |course| %>
+	<ul class="list-unstyled">
+		<li>Course Name: <%= course.name %></li>
+		<li>Course Description: <%= course.description %> </li>
+		<li>Course Duration: <%= course.duration %> </li>
+		<li>Course Price: <%= course.price %> </li>
+		<%= link_to 'Show', course_path(course.id) %><br>
+		<%= link_to 'Edit', edit_course_path(course.id) %><br>
+		<%= link_to 'Delete', course_path(course),
+			method: :delete,
+			data: { confirm: 'Do you really want to delete?' } %>
+	<% end %>
 	</ul>
 	<hr>
 	<ul class="list-unstyled">

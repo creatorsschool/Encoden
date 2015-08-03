@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 		end
 	end
 	resources :users
-  resources :resources
-  root to: 'pages#index'
+	resources :resources
+	root to: 'pages#index'
 end

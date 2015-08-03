@@ -23,15 +23,15 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-	 current_user.courses.create(course_params)
+		current_user.courses.create(course_params)
 		redirect_to courses_path
 	end
 
 	def destroy
 		Course.find(params[:id]).destroy
-
     redirect_to courses_path
  	end
+
 
 	private
 

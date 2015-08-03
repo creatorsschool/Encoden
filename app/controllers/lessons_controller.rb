@@ -14,13 +14,13 @@ class LessonsController < ApplicationController
 	end
 
 	def update
-    lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 		if params[:resource]
 			lesson.resources.create(resource_params)
 		else
 			lesson.update(lesson_params)
 		end
-    redirect_to course_chapter_lesson_path
+		redirect_to course_chapter_lesson_path
 	end
 
 	def new
@@ -28,15 +28,14 @@ class LessonsController < ApplicationController
 	end
 
 	def create
-    lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.create(lesson_params)
-    redirect_to course_chapter_lesson_path(params[:course_id], params[:chapter_id], lesson)
+		lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.create(lesson_params)
+		redirect_to course_chapter_lesson_path(params[:course_id], params[:chapter_id], lesson)
 	end
 
 	def destroy
 		@lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).destroy
 		redirect_to course_path(params[:course_id])
 	end
-
 
 
 	private
