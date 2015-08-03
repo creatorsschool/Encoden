@@ -6,7 +6,8 @@
 					<h3>Lessons</h3>
 					<li>
 						Name: <%= @lesson.name %>
-					<%= link_to "Delete", course_chapter_lesson_path(), class: "btn", method: :delete %>
+					<%= link_to "Delete", course_chapter_lesson_path, class: "btn", method: :delete %>
+					<%= link_to "Edit", edit_course_chapter_lesson_path, class: "btn" %>
 					<ul>
 						<li>
 							Description: <%= @lesson.description %>
