@@ -18,6 +18,7 @@ class CoursesController < ApplicationController
  	end
 
 	def new
+		@courses = current_user.courses
 		@course = Course.new
 	end
 
