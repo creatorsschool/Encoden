@@ -5,7 +5,7 @@
 				<ol>
 					<h3>Lessons</h3>
 					<% @lesson.resources.each do |resource| %>
-						<%= link_to "File", resource.file.url %>
+						<%= link_to resource.file.file.filename, resource.file.url %>
 					<% end %>
 					<%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
 						<%= f.label :file %>
