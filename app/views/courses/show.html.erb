@@ -10,7 +10,7 @@
 				</ul>
 				<ol>
 					<% @course.chapters.each do |chapter| %>
-						<h3><%= link_to "Chapters", course_chapter_path(@course, chapter) %></h3>
+						<%= link_to "Chapters", course_chapter_path(@course, chapter) %>
 						<li>
 							<%= chapter.name %>
 							<%= chapter.description %>
