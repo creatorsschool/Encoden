@@ -2,7 +2,7 @@
 <ul id="dropdown1" class="dropdown-content">
 	<% if signed_in? %>
 		<!-- <li><%= current_user.email %></li> -->
-  	<li><a href="#!">Profile</a></li>
+  	<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
   	<li><a href="#!">Settings</a></li>
   	<li class="divider"></li>
   	<li>

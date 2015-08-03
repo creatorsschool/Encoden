@@ -16,6 +16,6 @@
 	<hr>
 	<ul class="list-unstyled">
 		<li class="nav-header">My Profile</li>
-		<li><a href="/user/edit/<%= current_user.id %>">Edit</a></li>
+		<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 		<li><a href="#">Log Out</a></li>
 	</ul>
