@@ -10,11 +10,16 @@ class ChaptersController < ApplicationController
 		@chapter = Chapter.find(params[:id])
 	end
 
-	def create
-		@course = Course.find(params[:course_id])
-		@chapter = @course.chapters.create(chapter_params)
-		redirect_to course_path(@course)
-	end
+	# def create
+	# 	@course = Course.find(params[:course_id])
+	# 	# @chapter = @course.chapters.create(chapter_params)
+	# 	@chapter = @courses.chapters.find(params[:id])
+	# 	@chapter.create({
+	# 		name: params[:chapter_name],
+	# 		description: params[:chapter_description]
+	# 		})
+	# 	redirect_to course_path(@course)
+	# end
 
 	def edit
 		@chapter = Course.find(params[:course_id]).chapters.find(params[:id])

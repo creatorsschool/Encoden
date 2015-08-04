@@ -19,6 +19,7 @@ $(document).ready(function() {
     e.preventDefault();
     if(x < max_fields){
       x++;
+      var each_form = inputs;
       $(wrapper).append(inputs.clone());
     }
   });
