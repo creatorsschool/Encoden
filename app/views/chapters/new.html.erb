@@ -1,21 +1,38 @@
 <h1>Please add your chapter here!</h1>
-<form id="chapter-form" action="<%= new_course_chapter_path(@course) %>" method="post">
-	<div id="input-field">
+<form  action="<%= new_course_chapter_path(@course) %>" method="post">
+	<div id="chapter-form">
 		<p>
 			<h5> Chapter Number #</h5>
-			<input type="text" name="chapter_name" placeholder="Chapter Name" class="input-field col s6">
+			<input type="text" name="chapter_name" placeholder="Chapter Name" class="col s6">
 		</p>
-
 		<p>
 			<div class="row">
-				<input type="textarea" name="chapter_description" placeholder="Chapter Description" class="input-field col s6">
+				<input type="textarea" name="chapter_description" placeholder="Chapter Description" class=" col s6">
 			</div>
 		</p>
-
-
 	</div>
-	<input type="submit" name"Submit" class="btn">
+
+	<input id="form-btn" type="submit" name"Submit" class="btn">
+
 </form>
 <div>
-	<button class="add_field_button btn"> Add Another Chapter</button>
+	<button  class="add_field_button btn"> Add Another Chapter</button>
+</div>
+
+<!-- Hidden Form to clone with jquery -->
+<div hidden>
+	<form id="chapter-form" action="<%= new_course_chapter_path(@course) %>" method="post">
+		<div id="input-field">
+			<p>
+				<h5> Chapter Number #</h5>
+				<input type="text" name="chapter_name" placeholder="Chapter Name" class="input-field col s6">
+			</p>
+			<p>
+				<div class="row">
+					<input type="textarea" name="chapter_description" placeholder="Chapter Description" class="input-field col s6">
+				</div>
+			</p>
+		</div>
+	</form>
+	<input id="form-btn" type="submit" name"Submit" class="btn">
 </div>
