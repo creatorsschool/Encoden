@@ -28,7 +28,7 @@ class LessonsController < ApplicationController
 	end
 
 	def create
-		lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.create(lesson_params)
+		lesson = Chapter.find(params[:chapter_id]).lessons.create(lesson_params)
 		redirect_to course_chapter_lesson_path(params[:course_id], params[:chapter_id], lesson)
 	end
 

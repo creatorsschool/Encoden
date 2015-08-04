@@ -3,26 +3,55 @@
 		<div class="row">
 			<div class="col-md-10">
 				<ol>
-					<h3>Lessons</h3>
+					<h1 class="center-align"><%= @lesson.name %></h1>
 					<% @lesson.resources.each do |resource| %>
-						<%= link_to resource.file.file.filename, resource.file.url %>
-					<% end %>
-					<%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
+						<% if resource.file.url.split('.').last == "mp4" %>
+							<div class="center-align">
+								<video class="responsive-video" controls>
+	    					<source src="<%= resource.file.url %>" type="video/mp4">
+					  		</video>
+				  		</div>
+			  		<% end %>
+		  		<% end %>
+		  		<p><%= @lesson.description %></p>
+		  		<div class="row">
+				        <div class="col s12 m6">
+				          <div class="card teal lighten-2">
+				            <div class="card-content white-text">
+				              <span class="card-title">Attachments</span>
+		  									<% @lesson.resources.each do |resource| %>
+													<% if resource.file.url.split('.').last != "mp4" %>
+	           								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %></p>
+	           								 <% end %><% end %>
+						            </div>
+						          </div>
+						        </div>
+						      </div>		
+							
+					<h2>Edit your lesson</h2>
+					<div>
+						<%= link_to "Edit Lesson", edit_course_chapter_lesson_path, class: "btn" %>
+						<%= link_to "Delete Lesson", course_chapter_lesson_path, class: "btn", method: :delete %>
+					</div>
+					<br>
+					<div class="row">
+		        <div class="col s12 m6">
+		          <div class="card teal lighten-2">
+		            <div class="card-content white-text">
+		              <span class="card-title">Attachments</span>
+  									<% @lesson.resources.each do |resource| %>
+     								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %> 
+     								 <%= link_to "Delete file", resource_path(resource), method: :delete %></p>
+     								 <% end %>
+				            </div>
+				          </div>
+	          <%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
 						<%= f.label :file %>
 						<%= f.file_field :file %>
 						<%= f.submit "Upload", class: "btn" %>
 					<% end %>
-					<li>
-						Name: <%= @lesson.name %>
-					<%= link_to "Delete", course_chapter_lesson_path, class: "btn", method: :delete %>
-					<%= link_to "Edit", edit_course_chapter_lesson_path, class: "btn" %>
-					<ul>
-						<li>
-							Description: <%= @lesson.description %>
-					</li>
-					</ul>
-					</li>
-				</ol>
+	        </div>
+	      </div>
 			</div>
 		</div>
 	</div>
