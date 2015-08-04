@@ -3,7 +3,6 @@
 	<% if signed_in? %>
 		<!-- <li><%= current_user.email %></li> -->
 		<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
-		<li><a href="#!">Settings</a></li>
 		<li class="divider"></li>
 		<li>
 			<%= link_to 'Sign out', sign_out_path, method: :delete %>
@@ -29,7 +28,7 @@
 			<% end %>
 			<% if !signed_in? %>
 				<li>
-					<%= link_to 'Sign in', sign_in_path %>
+					<%= link_to 'Sign in', sign_in_path, class:"teal lighten-1" %>
 				<% end %>
 				</li>
 		</ul>
