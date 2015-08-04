@@ -1,6 +1,13 @@
+// Override materialize
+nav{
+	height: 50px!importante;
+	line-height: 50px!importante;
+
+}
 nav li {
 	text-align: center;
 }
+
 .profile-img {
 	vertical-align: middle;
 	width: 30px;
@@ -10,4 +17,9 @@ nav li {
 .nav-wrapper {
 	margin-right: 50px;
 	margin-left: 50px;
+}
+
+// Override materialize
+.dropdown-content{
+	min-width: 150px!important;
 }
