@@ -2,12 +2,9 @@
 
 <% @courses.each do |course| %>
 	<ul class="list-unstyled">
-		<li>Course Name: <%= course.name %></li>
-		<li>Course Description: <%= course.description %> </li>
-		<li>Course Duration: <%= course.duration %> </li>
-		<li>Course Price: <%= course.price %> </li>
-		<%= link_to 'Show', course_path(course.id) %><br>
-		<%= link_to 'Edit', edit_course_path(course.id) %><br>
+		<li><%= course.name %></li>
+		<%= link_to 'Show', course_path(course.id) %> |
+		<%= link_to 'Edit', edit_course_path(course.id) %> |
 		<%= link_to 'Delete', course_path(course),
 			method: :delete,
 			data: { confirm: 'Do you really want to delete?' } %>
@@ -17,5 +14,5 @@
 	<ul class="list-unstyled">
 		<li class="nav-header">My Profile</li>
 		<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
-		<li><a href="#">Log Out</a></li>
+		<li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
 	</ul>
