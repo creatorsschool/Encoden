@@ -2,4 +2,35 @@
 	<div class="col s12 m4 l3">
 		<%= render partial: '/admin/sidebar' %>
 	</div>
+  <div class="col s12 m8 l9">
+    <div class="row">
+      <h1 class="center-align">My dashboard</h1>
+    <% @courses.each do |course| %>
+    <div class="col s4">
+    <div class="card small">
+      <div class="row center-align">
+        <i class="large material-icons">receipt</i>
+        <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
+    </div>
+        
+        <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>     
+        <p><%= course.description %></p>
+        <p><%= course.duration %></p>
+        <p><%= course.price %></p>
+        </div>
+        <div class="card-action">
+        <%= link_to 'Show', course_path(course.id) %> 
+        <%= link_to 'Edit', edit_course_path(course.id) %>
+        <%= link_to 'Delete', course_path(course),
+          method: :delete,
+          data: { confirm: 'Do you really want to delete?' } %>
+        </div>
+      </div>
+      </div>
+    </div>
+    <% end %>
+    </div>
+  </div>
 </div>
