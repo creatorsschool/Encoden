@@ -19,6 +19,7 @@ class Clearance::SessionsController < Clearance::BaseController
 
   def destroy
     sign_out
+    flash[:notice] = "You have logged out successfully!"
     redirect_to url_after_destroy
   end
 
