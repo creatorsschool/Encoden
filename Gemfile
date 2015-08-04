@@ -32,6 +32,9 @@ gem 'clearance'
 # Materialize Sass
 gem 'materialize-sass'
 
+# Browser prefixes
+gem "autoprefixer-rails"
+
 # Carrierwave
 gem 'carrierwave'
 
