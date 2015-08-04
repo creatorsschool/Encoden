@@ -5,10 +5,12 @@ class CoursesController < ApplicationController
 	end
 
 	def show
+		@courses = current_user.courses
 		@course = current_user.courses.find(params[:id])
 	end
 
 	def edit
+		@courses = current_user.courses
 		@course = current_user.courses.find(params[:id])
 	end
 
