@@ -4,35 +4,35 @@
 			<div class="col-md-10">
 				<h1><%= @course.name %></h1>
 				<ul>
-					<li><%= @course.description %></li>
-					<li><%= @course.duration %></li>
-					<li><%= @course.price %>€</li>
+					<li><strong>Description: </strong><%= @course.description %></li>
+					<li><strong>Duration: </strong> <%= @course.duration %></li>
+					<li><strong>Price: </strong> <%= @course.price %>€</li>
 				</ul>
 				<ol>
 					<% @course.chapters.each do |chapter| %>
-						<%= link_to "Chapters", course_chapter_path(@course, chapter) %>
-						<li>
-							<%= chapter.name %>
-							<%= chapter.description %>
-							<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
-							<%= link_to 'Delete', course_chapter_path(@course, chapter), class: "btn",
-								method: :delete,
-								data: { confirm: 'Do you really want to delete?' } %>
+					<%= link_to "Chapters", course_chapter_path(@course, chapter) %>
+					<li>
+						Chapter Name: <%= chapter.name %><br>
+						Chapter Descripion: <%= chapter.description %>
+						<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
+						<%= link_to 'Delete', course_chapter_path(@course, chapter), class: "btn",
+						method: :delete,
+						data: { confirm: 'Do you really want to delete?' } %>
 					</li>
 					<ol>
 						<% chapter.lessons.each do |lesson| %>
-							<%= link_to "Lessons", course_chapter_lesson_path(@course, chapter, lesson) %>
-							<li>
-								Name: <%= lesson.name %>
+						<%= link_to "Lessons", course_chapter_lesson_path(@course, chapter, lesson) %>
+						<li>
+							Name: <%= lesson.name %>
 							<ul>
 								<li>
 									Description: <%= lesson.description %>
-							</li>
+								</li>
 							</ul>
-							</li>
+						</li>
 						<% end %>
 					</ol>
-				<% end %>
+					<% end %>
 				</ol>
 				<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 			</div>

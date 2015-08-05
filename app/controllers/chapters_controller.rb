@@ -12,12 +12,13 @@ class ChaptersController < ApplicationController
 
 	def create
 		@course = Course.find(params[:course_id])
-		params["chapter_name"].zip(params["chapter_description"])
-			@course.chapters.create(
-			{
-			name: params[:chapter_name],
-			description: params[:chapter_description]
+		list = params["chapter_name"].zip(params["chapter_description"])
+		list.each do |chapter|
+			@course.chapters.create({
+				name: chapter[0],
+				description: chapter[1]
 			})
+		end
 		redirect_to courses_path
 	end
 
