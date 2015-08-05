@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<!-- Custom CSS -->
-		<%= stylesheet_link_tag    "application" %>
+
 		<title>Your E-learning platform</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<!-- Custom CSS -->
+		<%= stylesheet_link_tag    "application" %>
+		<!-- Material Icons -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
@@ -27,17 +29,5 @@
 
 		<!-- Javascript -->
 		<%= javascript_include_tag "application" %>
-<script>
-$(document).ready(function() {
-    $('#left-menu').sidr({
-      name: 'sidr-left',
-      side: 'left' // By default
-    });
-    $('#right-menu').sidr({
-      name: 'sidr-right',
-      side: 'right'
-    });
-});
-</script>
 	</body>
 </html>
