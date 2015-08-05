@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Clearance::UsersController
 
 	def edit
 		@user = User.find(params[:id])
@@ -7,12 +7,6 @@ class UsersController < ApplicationController
 	def update
 		@user = User.update(params[:id], user_params)
 		redirect_to courses_path
-	end
-
-	private
-
-	def user_params
-		params.require(:user).permit(:name, :email, :password)
 	end
 
 end
