@@ -1,10 +1,39 @@
 <div class="sign-form row">
-	<div class="col l4 m6 s10 offset-l4 offset-m3 offset-s1">
-		<div class="card-panel hoverable">
-			<h4 class="center-align">Edit your profile</h4>
-			<%= form_for @user do |form| %>
-				<%= render partial: '/users/form', object: form %>
-			<% end %>
-		</div>
-	</div>
+  <div class="col l4 m6 s10 offset-l4 offset-m3 offset-s1">
+    <div class="card-panel hoverable">
+      <h4 class="center-align">Edit your profile</h4>
+      <%= form_for @user do |form| %>
+      <p class="yellow lighten-3">Edit your personal information</p>
+      <div class="row">
+        <div class="input-field">
+          <%= form.label :name %>
+          <%= form.text_field :name, class: 'validate', :required => true, type: 'text' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field">
+          <%= form.label :email %>
+          <%= form.text_field :email, class: 'validate', :required => true, type: 'email' %>
+        </div>
+      </div>
+      <p class="yellow lighten-3">Add a profile picture</p>
+      <div class="row">
+        <div class="input-field">
+          <%= form.file_field :avatar %>
+          <%= form.submit "Upload", class: "btn" %>
+        </div>
+      </div>
+      <p class="yellow lighten-3">Choose a new password</p>
+      <div class="row">
+        <div class="input-field">
+          <%= form.label :password %>
+          <%= form.password_field :password, :required => true, class: 'validate' %>
+        </div>
+      </div>
+      <div>
+        <%= form.submit class: "btn" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
