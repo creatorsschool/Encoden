@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 		end
 	end
 
-	resources :users
+	resources :users, only: [:edit, :update]
 	resources :resources, only: [:destroy]
 
 root to: 'pages#index'
