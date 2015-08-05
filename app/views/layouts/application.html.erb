@@ -27,5 +27,17 @@
 
 		<!-- Javascript -->
 		<%= javascript_include_tag "application" %>
+<script>
+$(document).ready(function() {
+    $('#left-menu').sidr({
+      name: 'sidr-left',
+      side: 'left' // By default
+    });
+    $('#right-menu').sidr({
+      name: 'sidr-right',
+      side: 'right'
+    });
+});
+</script>
 	</body>
 </html>
