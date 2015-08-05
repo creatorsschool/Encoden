@@ -15,7 +15,6 @@ $(document).ready(function() {
   var form_btn        = $("#form-btn");
 
   $(add_button).on("click", function(e){
-    console.log("HELOO");
     e.preventDefault();
     if(x < max_fields){
       x++;
