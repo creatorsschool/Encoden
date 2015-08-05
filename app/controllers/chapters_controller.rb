@@ -9,6 +9,7 @@ class ChaptersController < ApplicationController
 
 	def show
 		@chapter = Chapter.find(params[:id])
+		@courses = current_user.courses
 	end
 
 	def create
