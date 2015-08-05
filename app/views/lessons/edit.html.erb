@@ -1,24 +1,25 @@
 <div class="row">
-	<h1>Let's Edit Your Lesson!</h1>
-	<%= form_for @lesson, url: course_chapter_lesson_path do |f| %>
-		<p>
+	<div class="col s12 m4 l3 card teal lighten-5">
+		<%= render partial: '/admin/sidebar' %>
+	</div>
+	<div class="col s12 m8 l9">
 		<div class="row">
-			<div class="input-field col s6">
-				<%= f.label :name %><br>
-				<%= f.text_field :name %>
+			<h1>Let's Edit Your Lesson!</h1>
+			<%= form_for @lesson, url: course_chapter_lesson_path do |f| %>
+			<div class="row">
+				<div class="input-field col s6">
+					<%= f.label :name %><br>
+					<%= f.text_field :name, class: "validate", required: true %>
+				</div>
 			</div>
-		</div>
-		</p>
-		<p>
-		<div class="row">
-			<div class="input-field col s6">
-				<%= f.label :description %><br>
-				<%= f.text_area :description %>
+			<div class="row">
+				<div class="input-field col s6">
+					<%= f.label :description %><br>
+					<%= f.text_area :description, cols: 3, class:"materialize-textarea", required: true %>
+				</div>
 			</div>
+			<%= f.submit class: "btn" %>
+			<% end %>
 		</div>
-		</p>
-		<p>
-		<%= f.submit class: "btn" %>
-		</p>
-	<% end %>
+	</div>
 </div>
