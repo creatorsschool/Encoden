@@ -1,13 +1,13 @@
 <h1>Please add your chapter here!</h1>
-<form  action="<%= new_course_chapter_path(@course) %>" method="post">
+<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
 	<div id="chapter-form">
 		<p>
 			<h5> Chapter Number #</h5>
-			<input type="text" name="chapter_name" placeholder="Chapter Name" class="col s6">
+			<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
 		</p>
 		<p>
 			<div class="row">
-				<input type="textarea" name="chapter_description" placeholder="Chapter Description" class=" col s6">
+				<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class=" col s6">
 			</div>
 		</p>
 	</div>
@@ -25,11 +25,11 @@
 		<div id="input-field">
 			<p>
 				<h5> Chapter Number #</h5>
-				<input type="text" name="chapter_name" placeholder="Chapter Name" class="input-field col s6">
+				<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="input-field col s6">
 			</p>
 			<p>
 				<div class="row">
-					<input type="textarea" name="chapter_description" placeholder="Chapter Description" class="input-field col s6">
+					<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class="input-field col s6">
 				</div>
 			</p>
 		</div>
