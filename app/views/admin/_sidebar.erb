@@ -1,5 +1,6 @@
-<%= link_to 'New Course', new_course_path, class: "btn" %>
-
+<% if can? :manage, @course %>
+	<%= link_to 'New Course', new_course_path, class: "btn" %>
+<% end %>
 <% @courses.each do |course| %>
 	<ul class="list-unstyled">
 		<li><%= course.name %></li>
