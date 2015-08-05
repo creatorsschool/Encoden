@@ -11,8 +11,8 @@ Course.destroy_all
 Chapter.destroy_all
 Lesson.destroy_all
 
-User.create(name: "admin", email: 'admin@gmail.com', password: 'teste')
-User.create(name: "user", email: 'user@gmail.com', password: 'teste')
+User.create(name: "admin", email: 'admin@gmail.com', password: 'teste', teacher: true)
+User.create(name: "user", email: 'user@gmail.com', password: 'teste', teacher: false)
 
 Course.create(name: "Course 1", description: "This is first Course", duration: 10, price: 200, user_id: 1)
 Chapter.create(name: "Chapter 1", description: "First Chapter from course 1", course_id: 1)
