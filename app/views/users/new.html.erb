@@ -3,11 +3,25 @@
 		<div class="card-panel hoverable">
 			<h4 class="center-align"><%= t(".title") %></h4>
 			<%= form_for @user do |form| %>
-				<%= render partial: '/users/form', object: form %>
-				<div class="row form-margin">
-					<%= link_to t(".sign_in"), sign_in_path %>
-				<% end %>
+			<div class="row">
+				<div class="input-field">
+					<%= form.label :email %>
+					<%= form.text_field :email, class: 'validate', :required => true, type: 'email' %>
 				</div>
+			</div>
+			<div class="row">
+				<div class="input-field">
+					<%= form.label :password %>
+					<%= form.password_field :password, :required => true, class: 'validate' %>
+				</div>
+			</div>
+			<div>
+				<%= form.submit class: "btn" %>
+			</div>
+			<div class="row form-margin">
+				<%= link_to t(".sign_in"), sign_in_path %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
