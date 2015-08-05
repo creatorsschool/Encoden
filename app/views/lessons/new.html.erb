@@ -1,18 +1,28 @@
 <div class="row">
-	<h1>Hello <%= current_user.name %>!</h1>
-	<p>Let's get started with the creation of a new course.</p>
-	<p>Please add your course name and a description of what your want to teach:</p>
-	<%= form_for :lesson, url: course_chapter_lessons_path, class: "col s12" do |f| %>
+	<div class="col s12 m4 l3 card teal lighten-5">
+		<%= render partial: '/admin/sidebar' %>
+	</div>
+	<div class="col s12 m8 l9">
 		<div class="row">
-			<div class="input-field col s6"n>
-				<%= f.label :name, "Lesson Name" %>
-				<%= f.text_field :name, class: "validate", required: true %>
+			<h1>Hello <%= current_user.name %>!</h1>
+			<p>Let's get started with the creation of a new lesson.</p>
+			<p>Please add your lesson name and a description of what you want to teach:</p>
+			<%= form_for :lesson, url: course_chapter_lessons_path do |f| %>
+			<div class="row">
+				<div class="col s6">
+					<div class="input-field">
+						<%= f.label :name, "Lesson Name" %>
+						<%= f.text_field :name, class: "validate", required: true %>
+					</div>
+					<div class="input-field">
+						<%= f.label :description, "Lesson Description" %>
+						<%= f.text_area :description, cols: 3, class:"materialize-textarea", required: true %>
+						</div>
+						<%= f.submit "Create", class: "btn" %>
+						<% end %>
+					</div>
+				</div>
 			</div>
-
-			<%= f.label :description, "Lesson Description" %>
-			<%= f.text_area :description, class: "validate", required: true %>
-
-			<%= f.submit "Create", class: "btn" %>
-		<% end %>
 		</div>
+	</div>
 </div>

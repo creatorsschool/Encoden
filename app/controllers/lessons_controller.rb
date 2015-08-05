@@ -5,11 +5,12 @@ class LessonsController < ApplicationController
 	end
 
 	def show
-
+		@courses = current_user.courses
 		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
 	def edit
+		@courses = current_user.courses
 		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
@@ -24,6 +25,7 @@ class LessonsController < ApplicationController
 	end
 
 	def new
+		@courses = current_user.courses
 		Lesson.new
 	end
 

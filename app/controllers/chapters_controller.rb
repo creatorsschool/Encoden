@@ -4,10 +4,12 @@ class ChaptersController < ApplicationController
 
 	def new
 		@course = Course.find(params[:course_id])
+		@courses = current_user.courses
 	end
 
 	def show
 		@chapter = Chapter.find(params[:id])
+		@courses = current_user.courses
 	end
 
 	def create
@@ -23,6 +25,7 @@ class ChaptersController < ApplicationController
 	end
 
 	def edit
+		@courses = current_user.courses
 		@chapter = Course.find(params[:course_id]).chapters.find(params[:id])
 	end
 
