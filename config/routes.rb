@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
 	resources :users
 	resources :resources, only: [:destroy]
-	root to: 'pages#index'
+
+root to: 'pages#index'
 end

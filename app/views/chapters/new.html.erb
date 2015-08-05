@@ -1,17 +1,38 @@
-<div class="row">
-	<h1>Please add your chapter here!</h1>
-	<%= form_for :chapter, url: course_chapters_path, class: "col s12" do |f| %>
-		<div class="row">
-			<p>
-			<div class="input-field col s6"n>
-				<%= f.label :name, "Chapter Name" %>
-				<%= f.text_field :name, class: "validate", required: true %>
-			</p>
-			<p>
-			<div class="input-field col s6"n>
-				<%= f.label :description, "Chapter Description" %>
-				<%= f.text_area :description, class: "validate", required: true %>
-			</p>
-			<%= f.submit "Create", class: "btn" %>
-		<% end %>
+<h1>Please add your chapter here!</h1>
+<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
+	<div id="chapter-form">
+		<p>
+			<h5> Chapter Number #</h5>
+			<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
+		</p>
+		<p>
+			<div class="row">
+				<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class=" col s6">
 			</div>
+		</p>
+	</div>
+
+	<input id="form-btn" type="submit" name"Submit" class="btn">
+
+</form>
+<div>
+	<button  class="add_field_button btn"> Add Another Chapter</button>
+</div>
+
+<!-- Hidden Form to clone with jquery -->
+<div hidden>
+	<form id="chapter-form" action="<%= new_course_chapter_path(@course) %>" method="post">
+		<div id="input-field">
+			<p>
+				<h5> Chapter Number #</h5>
+				<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="input-field col s6">
+			</p>
+			<p>
+				<div class="row">
+					<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class="input-field col s6">
+				</div>
+			</p>
+		</div>
+	</form>
+	<input id="form-btn" type="submit" name"Submit" class="btn">
+</div>

@@ -2,12 +2,11 @@
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-10">
-				<h1><%= @chapter.name %></h1>
-				<ul>
-					<li><%= @chapter.description %></li>
-				</ul>
+				Chapter Name: <%= @chapter.name %><br>
+				Chapter description: <%= @chapter.description %>
 			</div>
-			<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id]) %>
+			<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id])%><br>
+			<%= link_to "See Course", course_path(params[:course_id])%>
 		</div>
 	</div>
 <div>

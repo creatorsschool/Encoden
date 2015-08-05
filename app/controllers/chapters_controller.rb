@@ -1,7 +1,9 @@
 class ChaptersController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token
+
 	def new
-		Chapter.new
+		@course = Course.find(params[:course_id])
 	end
 
 	def show
@@ -10,8 +12,14 @@ class ChaptersController < ApplicationController
 
 	def create
 		@course = Course.find(params[:course_id])
-		@chapter = @course.chapters.create(chapter_params)
-		redirect_to course_path(@course)
+		list = params["chapter_name"].zip(params["chapter_description"])
+		list.each do |chapter|
+			@course.chapters.create({
+				name: chapter[0],
+				description: chapter[1]
+			})
+		end
+		redirect_to courses_path
 	end
 
 	def edit
