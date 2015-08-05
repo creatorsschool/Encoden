@@ -1,3 +1,4 @@
+<p class="yellow lighten-3">Personal Info</p>
 <div class="row">
   <div class="input-field">
     <%= form.label :name %>
@@ -5,17 +6,25 @@
   </div>
 </div>
 <div class="row">
-	<div class="input-field">
-		<%= form.label :email %>
-		<%= form.text_field :email, class: 'validate', :required => true, type: 'email' %>
-	</div>
+  <div class="input-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'validate', :required => true, type: 'email' %>
+  </div>
 </div>
+<p class="yellow lighten-3">Profile Picture</p>
 <div class="row">
-	<div class="input-field">
-		<%= form.label :password %>
-		<%= form.password_field :password, :required => true, class: 'validate' %>
-	</div>
+  <div class="input-field">
+    <%= form.file_field :avatar %>
+    <%= form.submit "Upload", class: "btn" %>
+  </div>
+</div>
+<p class="yellow lighten-3">Choose a password</p>
+<div class="row">
+  <div class="input-field">
+    <%= form.label :password %>
+    <%= form.password_field :password, :required => true, class: 'validate' %>
+  </div>
 </div>
 <div>
-	<%= form.submit class: "btn" %>
+  <%= form.submit class: "btn" %>
 </div>
