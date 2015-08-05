@@ -1,38 +1,36 @@
-<h1>Please add your chapter here!</h1>
-<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
-	<div id="chapter-form">
-		<p>
-			<h5> Chapter Number #</h5>
-			<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
-		</p>
-		<p>
-			<div class="row">
-				<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class=" col s6">
-			</div>
-		</p>
+<div class="row">
+	<div class="col s12 m4 l3 card teal lighten-5">
+		<%= render partial: '/admin/sidebar' %>
 	</div>
-
-	<input id="form-btn" type="submit" name"Submit" class="btn">
-
-</form>
-<div>
-	<button  class="add_field_button btn"> Add Another Chapter</button>
-</div>
-
-<!-- Hidden Form to clone with jquery -->
-<div hidden>
-	<form id="chapter-form" action="<%= new_course_chapter_path(@course) %>" method="post">
-		<div id="input-field">
-			<p>
-				<h5> Chapter Number #</h5>
-				<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="input-field col s6">
-			</p>
-			<p>
-				<div class="row">
-					<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class="input-field col s6">
+	<div class="col s12 m8 l9">
+		<div class="row">
+			<h1>Please add your chapter here!</h1>
+			<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
+				<div id="chapter-form">
+					<h5> Chapter Number #</h5>
+					<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
+					<div class="row">
+						<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class=" col s6">
+					</div>
 				</div>
-			</p>
+				<input id="form-btn" type="submit" name"Submit" class="btn">
+			</form>
+			<div>
+				<button  class="add_field_button btn"> Add Another Chapter</button>
+			</div>
+			<!-- Hidden Form to clone with jquery -->
+			<div hidden>
+				<form id="chapter-form" action="<%= new_course_chapter_path(@course) %>" method="post">
+					<div id="input-field">
+						<h5> Chapter Number #</h5>
+						<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="input-field col s6">
+						<div class="row">
+							<input type="textarea" name="chapter_description[]" placeholder="Chapter Description" class="input-field col s6">
+						</div>
+					</div>
+				</form>
+				<input id="form-btn" type="submit" name"Submit" class="btn">
+			</div>
 		</div>
-	</form>
-	<input id="form-btn" type="submit" name"Submit" class="btn">
+	</div>
 </div>
