@@ -1,4 +1,4 @@
-<% if can? :create, @course %>
+<% if can? :manage, @course %>
 	<%= link_to 'New Course', new_course_path, class: "btn" %>
 <% end %>
 <% @courses.each do |course| %>
