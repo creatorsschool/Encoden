@@ -2,7 +2,7 @@
   position: fixed;
   top: 79px;
   right: 10px;
-  padding: 25px 15px;
+  padding: 15px 15px;
   z-index: 1;
   border-radius: 5px;
     box-shadow: 
@@ -21,12 +21,17 @@
 }
 
 .notice {
-  background: #f0f4c3;
-  border: 1px solid #dce775;
+  background: rgba(230,238,156,.7);
+  border: 1px solid #c0ca33;
 }
 
 .error {
-  background: #ef9a9a;
+  background: rgba(239,154,154,.7);
   border: 1px solid #e57373;
+}
+
+.success {
+  background: rgba(174,213,129,.7);
+  border: 1px solid #558b2f;
 }
 

@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
 
 	def update
 		Course.find(params[:id]).update(course_params)
+		flash[:success] = "Course updated"
 		redirect_to courses_path
 	end
 
@@ -26,11 +27,13 @@ class CoursesController < ApplicationController
 
 	def create
 		current_user.courses.create(course_params)
-		redirect_to courses_path
+    flash[:success] = "You have added a new course, hurray!"
+    redirect_to courses_path
 	end
 
 	def destroy
 		Course.find(params[:id]).destroy
+		flash[:notice] = "Course destroyed"
 		redirect_to courses_path
 	end
 
