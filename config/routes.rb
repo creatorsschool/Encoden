@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :courses do
 		resources :chapters do
+      post :update_row_order, on: :collection
 			resources :lessons
 		end
 	end
