@@ -15,9 +15,9 @@ class CoursesController < ApplicationController
 	end
 
 	def update
-    Course.find(params[:id]).update(course_params)
-    redirect_to courses_path
- 	end
+		Course.find(params[:id]).update(course_params)
+		redirect_to courses_path
+	end
 
 	def new
 		@courses = current_user.courses
@@ -31,8 +31,8 @@ class CoursesController < ApplicationController
 
 	def destroy
 		Course.find(params[:id]).destroy
-    redirect_to courses_path
- 	end
+		redirect_to courses_path
+	end
 
 
 	private
