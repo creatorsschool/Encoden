@@ -1,0 +1,26 @@
+<ul class="collapsible" data-collapsible="accordion">
+	<% course.chapters.each do |chapter| %>
+		<li>
+			<div class="collapsible-header">
+				<i class="material-icons">filter_drama</i>
+				<%= chapter.name %>
+				<div class="right">
+					<%= link_to course_chapter_path(course, chapter), class: "" do %>
+						<i class="material-icons">face</i>
+					<% end %>
+					<%= link_to edit_course_chapter_path(course, chapter), class: "" do %>
+						<i class="material-icons">edit</i>
+					<% end %>
+					<%= link_to course_chapter_path(course, chapter), class: "", remote: true, method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+						<i class="material-icons">delete</i>
+					<% end %>
+				</div>
+			</div>
+			<% chapter.lessons.each do |lesson| %>
+				<div class="collapsible-body">
+					<p><%=lesson.name %></p>
+				</div>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
