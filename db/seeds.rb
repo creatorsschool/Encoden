@@ -23,7 +23,7 @@ Lesson.create(name: "How to resize images correctly Part 2", description: "Lesso
 Lesson.create(name: "How Web sites work", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 1)
 Lesson.create(name: "Downloading files for the Web site", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 1)
 
-Chapter.create(name: "Explaining Autoresponders and email marketing", description: "First Chapter from course 1", course_id: 1)
+Chapter.create(name: "Autoresponders and email marketing", description: "First Chapter from course 1", course_id: 1)
 Lesson.create(name: "How email works", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
 Lesson.create(name: "Working with autoresponders", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
 Lesson.create(name: "Email Marketing", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)

@@ -14,66 +14,35 @@
 							<li><strong>Price: </strong> <%= @course.price %>€</li>
 						</ul>
 					</div>
-
-					<div class="card">
 						<ul class="collapsible" data-collapsible="accordion">
-
-								<% @course.chapters.each do |chapter| %>
-							<li>
+							<% @course.chapters.each do |chapter| %>
+								<li>
 									<div class="collapsible-header">
 										<i class="material-icons">filter_drama</i>
 										<%= chapter.name %>
+										<div class="right">
 
-									  <%= link_to edit_course_chapter_path(@course, chapter), class: "" do %>
-									  	<i class="material-icons">edit</i>
+											<%= link_to course_chapter_path(@course, chapter), class: "" do %>
+												<i class="material-icons">face</i>
 											<% end %>
-										<%= link_to course_chapter_path(@course, chapter), class: "", method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
-											<i class="material-icons">delete</i>
-										<% end %>
+											<%= link_to edit_course_chapter_path(@course, chapter), class: "" do %>
+												<i class="material-icons">edit</i>
+											<% end %>
+											<%= link_to course_chapter_path(@course, chapter), class: "", method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+												<i class="material-icons">delete</i>
+											<% end %>
+										</div>
 									</div>
 									<% chapter.lessons.each do |lesson| %>
 										<div class="collapsible-body">
 											<p><%=lesson.name %></p>
 										</div>
 									<% end %>
-
-							</li>
-
-						<% end %>
+								</li>
+							<% end %>
 						</ul>
-
-
-
-						<%#  <% @course.chapters.each do |chapter| %>                                                    %>
-							<%#    <ol>                                                                                      %>
-								<%#      <%= link_to "Chapter", course_chapter_path(@course, chapter) %>                         %>
-								<%#      <li>                                                                                    %>
-									<%#        Chapter Name: <%= chapter.name %>                                                     %>
-									<%#      <%= link_to 'Edit', edit_course_chapter_path(@course, chapter), class: "" %>            %>
-									<%#      <%= link_to 'Delete', course_chapter_path(@course, chapter), class: "", method: :delete,%>
-									<%#        data: { confirm: 'Do you really want to delete?' } %>                                 %>
-									<%#      <br>                                                                                    %>
-									<%#      Chapter Descripion: <%= chapter.description %>                                          %>
-									<%#    </li>                                                                                     %>
-								<%#    <ol>                                                                                      %>
-									<%#      <% chapter.lessons.each do |lesson| %>                                                  %>
-										<%#        <%= link_to "Lesson", course_chapter_lesson_path(@course, chapter, lesson) %>         %>
-										<%#        <li>                                                                                  %>
-											<%#          Name: <%= lesson.name %>                                                            %>
-											<%#        <ul>                                                                                  %>
-												<%#          <li>                                                                                %>
-													<%#            Description: <%= lesson.description %>                                            %>
-													<%#        </li>                                                                                 %>
-												<%#        </ul>                                                                                 %>
-											<%#        </li>                                                                                 %>
-										<%#      <% end %>                                                                               %>
-									<%#</div>                                                                                        %>
-								<%#    </ol>                                                                                     %>
-							<%#  <% end %>                                                                                   %>
-						<%#    </ol>                                                                                     %>
-					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+						<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
