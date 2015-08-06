@@ -4,9 +4,7 @@ $(document).ready(function() {
 
 	// Mobile navbar
 	$(".button-collapse").sideNav();
-}); // end of document ready
 
-$(document).ready(function() {
   var max_fields      = 10; //maximum input boxes allowed
   var inputs          = $("#input-field"); //Fields wrapper
   var wrapper         = $("#chapter-form");
