@@ -6,6 +6,6 @@ class Course < ActiveRecord::Base
 	belongs_to :user
 
   def formatted_price
-    number_to_currency(price, precision: 2, unit: '€', format: "%n %u")
+    number_to_currency(price, locale: :pt)
   end
 end
