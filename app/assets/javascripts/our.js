@@ -21,3 +21,14 @@ $(document).ready(function() {
     }
   });
 });
+
+var counter = 2;
+
+$(document).ready(function(){
+
+  $("#addMe").click(function(){
+    counter++;
+
+    $(".theCount").last().text(counter);
+  });
+});
