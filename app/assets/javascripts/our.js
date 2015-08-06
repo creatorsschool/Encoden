@@ -6,7 +6,7 @@ $(document).ready(function() {
 	$(".button-collapse").sideNav();
 
 	// Prevent default action on action links inside collapsible
-	$(".inner-action").on("click", function(event) {
+	$(".inner-action").delegate("a", "click", function(event) {
 		event.stopPropagation();
 	});
 
