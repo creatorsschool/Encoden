@@ -50,6 +50,8 @@ gem 'ranked-model'
 # Use jQuery UI
 gem 'jquery-ui-rails'
 
+gem 'quiet_assets'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

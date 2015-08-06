@@ -14,9 +14,30 @@
 							<li><strong>Price: </strong> <%= @course.formatted_price %></li>
 						</ul>
 					</div>
-					<div class="replaced-ajax">
-						<%= render "chapters", course: @course %>
-					</div>
+					<table class="table table-bordered table-striped" id="sortable" data-course-id=<%= @course.id %>>
+						<thead>
+							<tr>
+								<th>
+									Title
+								</th>
+								<th>
+									Description
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @course.chapters.each do |chapter| %>
+							<tr data-item-id=<%= "#{chapter.id}" %> class="item">
+								<td>
+									<%= chapter.name %>
+								</td>
+								<td>
+									<%= link_to 'show', course_chapter_path(@course, chapter) %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</div>
 			</div>

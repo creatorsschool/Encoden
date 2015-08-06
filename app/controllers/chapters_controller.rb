@@ -13,9 +13,8 @@ class ChaptersController < ApplicationController
 
 	def update_row_order
     @chapter = Chapter.find(params[:id])
-    @chapter.row_order_position = Chapter.find(params[:row_order_position])
+    @chapter.row_order_position = chapter_params[:row_order_position]
     @chapter.save
-
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
