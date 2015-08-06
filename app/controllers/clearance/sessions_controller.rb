@@ -19,7 +19,7 @@ class Clearance::SessionsController < Clearance::BaseController
 
   def destroy
     sign_out
-    flash[:success] = "Later #{@user.name}!"
+    flash[:success] = "See you later!"
     redirect_to url_after_destroy
   end
 
