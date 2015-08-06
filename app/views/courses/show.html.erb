@@ -2,45 +2,46 @@
 	<div class="col s12 m4 l3 card teal lighten-5">
 		<%= render partial: '/admin/sidebar' %>
 	</div>
-  <div class="col s12 m8 l9">
-	<div class="col-md-9">
-		<div class="row">
-			<div class="col-md-10">
-				<h1><%= @course.name %></h1>
-				<ul>
-					<li><strong>Description: </strong><%= @course.description %></li>
-					<li><strong>Duration: </strong> <%= @course.duration %></li>
-					<li><strong>Price: </strong> <%= @course.price %>€</li>
-				</ul>
-				<ol>
-					<% @course.chapters.each do |chapter| %>
-					<%= link_to "Chapters", course_chapter_path(@course, chapter) %>
-					<li>
-						Chapter Name: <%= chapter.name %><br>
-						Chapter Descripion: <%= chapter.description %>
-						<%= link_to 'Edit Chapter', edit_course_chapter_path(@course, chapter), class: "btn" %>
-						<%= link_to 'Delete', course_chapter_path(@course, chapter), class: "btn",
-						method: :delete,
-						data: { confirm: 'Do you really want to delete?' } %>
-					</li>
-					<ol>
-						<% chapter.lessons.each do |lesson| %>
-						<%= link_to "Lessons", course_chapter_lesson_path(@course, chapter, lesson) %>
-						<li>
-							Name: <%= lesson.name %>
-							<ul>
+	<div class="col s12 m8 l9">
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-10">
+					<div class="card">
+						<h1><%= @course.name %></h1>
+						<ul>
+							<li><strong>Description: </strong><%= @course.description %></li>
+							<li><strong>Duration: </strong> <%= @course.duration %></li>
+							<li><strong>Price: </strong> <%= @course.price %>€</li>
+						</ul>
+					</div>
+						<ul class="collapsible" data-collapsible="accordion">
+							<% @course.chapters.each do |chapter| %>
 								<li>
-									Description: <%= lesson.description %>
+									<div class="collapsible-header">
+										<i class="material-icons">filter_drama</i>
+										<%= chapter.name %>
+										<div class="right">
+											<%= link_to course_chapter_path(@course, chapter), class: "" do %>
+												<i class="material-icons">face</i>
+											<% end %>
+											<%= link_to edit_course_chapter_path(@course, chapter), class: "" do %>
+												<i class="material-icons">edit</i>
+											<% end %>
+											<%= link_to course_chapter_path(@course, chapter), class: "", method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
+												<i class="material-icons">delete</i>
+											<% end %>
+										</div>
+									</div>
+									<% chapter.lessons.each do |lesson| %>
+										<div class="collapsible-body">
+											<p><%=lesson.name %></p>
+										</div>
+									<% end %>
 								</li>
-							</ul>
-						</li>
-						<% end %>
-					</ol>
-					<% end %>
-				</ol>
-				<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+							<% end %>
+						</ul>
+						<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
