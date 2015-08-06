@@ -1,6 +1,5 @@
 class ChaptersController < ApplicationController
 
-	skip_before_filter :verify_authenticity_token
 
 	def new
 		@course = Course.find(params[:course_id])
@@ -41,7 +40,7 @@ class ChaptersController < ApplicationController
 		@course = Course.find(params[:course_id])
 		@course.chapters.find(params[:id]).destroy
 		flash[:notice] = "Chapter destroyed"
-		redirect_to course_path(@course)
+		#redirect_to course_path(@course)
 	end
 
 

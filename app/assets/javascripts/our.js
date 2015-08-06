@@ -5,6 +5,11 @@ $(document).ready(function() {
 	// Mobile navbar
 	$(".button-collapse").sideNav();
 
+	// Prevent default action on action links inside collapsible
+	$(".inner-action").on("click", function(event) {
+		event.stopPropagation();
+	});
+
   var max_fields      = 10; //maximum input boxes allowed
   var inputs          = $("#input-field"); //Fields wrapper
   var wrapper         = $("#chapter-form");
