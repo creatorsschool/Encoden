@@ -28,8 +28,8 @@ Lesson.create(name: "How email works", description: "Lesson 1 from Chapter 1 and
 Lesson.create(name: "Working with autoresponders", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
 Lesson.create(name: "Email Marketing", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
 Lesson.create(name: "Spamming 101", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
-Lesson.create(name: "How Web sites work", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
-Lesson.create(name: "Downloading files for the Web site", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
+Lesson.create(name: "Spamming 102", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
+Lesson.create(name: "Email Analytics", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
 
 
 Course.create(name: "Course 2", description: "This is second Course", duration: 10, price: 200, user_id: 1)
