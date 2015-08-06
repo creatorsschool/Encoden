@@ -47,6 +47,9 @@ gem 'rails-i18n'
 # For sortable tables
 gem 'ranked-model'
 
+# Use jQuery UI
+gem 'jquery-ui-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
