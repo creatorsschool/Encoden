@@ -17,7 +17,7 @@
 								<span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>
 								<p>Description: <%= course.description %></p>
 								<p>Duration: <%= course.duration %></p>
-								<p>Price: <%= course.price %></p>
+								<p>Price: <%= course.formatted_price %></p>
 							</div>
 							<div class="card-action">
 								<%= link_to 'Show', course_path(course.id) %>
