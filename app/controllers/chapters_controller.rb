@@ -21,6 +21,7 @@ class ChaptersController < ApplicationController
 				description: chapter[1]
 			})
 		end
+		flash[:success] = "You have added a new chapter!"
 		redirect_to courses_path
 	end
 
@@ -32,12 +33,14 @@ class ChaptersController < ApplicationController
 	def update
 		@course = Course.find(params[:course_id])
 		@course.chapters.find(params[:id]).update(chapter_params)
+		flash[:success] = "Chapter updated"
 		redirect_to course_path(@course)
 	end
 
 	def destroy
 		@course = Course.find(params[:course_id])
 		@course.chapters.find(params[:id]).destroy
+		flash[:notice] = "Chapter destroyed"
 		redirect_to course_path(@course)
 	end
 

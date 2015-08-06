@@ -8,7 +8,7 @@ class Clearance::SessionsController < Clearance::BaseController
 
     sign_in(@user) do |status|
       if status.success?
-        flash[:notice] = "You have logged in successfully!"
+        flash[:success] = "Hello #{@user.name}!"
         redirect_back_or url_after_create
       else
         flash.now.notice = status.failure_message
@@ -19,7 +19,7 @@ class Clearance::SessionsController < Clearance::BaseController
 
   def destroy
     sign_out
-    flash[:notice] = "You have logged out successfully!"
+    flash[:success] = "Later #{@user.name}!"
     redirect_to url_after_destroy
   end
 

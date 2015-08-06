@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
 		else
 			lesson.update(lesson_params)
 		end
+		flash[:success] = "Lesson updated"
 		redirect_to course_chapter_lesson_path
 	end
 
@@ -31,11 +32,13 @@ class LessonsController < ApplicationController
 
 	def create
 		lesson = Chapter.find(params[:chapter_id]).lessons.create(lesson_params)
+		flash[:success] = "Lesson created!"
 		redirect_to course_chapter_lesson_path(params[:course_id], params[:chapter_id], lesson)
 	end
 
 	def destroy
 		@lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).destroy
+		flash[:notice] = "Lesson destroyed"
 		redirect_to course_path(params[:course_id])
 	end
 
