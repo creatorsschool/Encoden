@@ -16,7 +16,9 @@
   padding-top: 10px;
 }
 
-
+.item {
+  cursor: move;
+}
 
 /*Parallax*/
 .parallax img{
