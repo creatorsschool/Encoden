@@ -6,6 +6,7 @@
 		<div class="row">
 			<h1>Please add your chapter here!</h1>
 			<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
+				<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
 				<div id="chapter-form">
 					<h5> Chapter Number #</h5>
 					<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
@@ -34,3 +35,4 @@
 		</div>
 	</div>
 </div>
+
