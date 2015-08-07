@@ -29,6 +29,6 @@ jQuery ->
           type: 'POST'
           url: "/courses/#{course_id}/chapters/#{item_id}/update_row_order"
           dataType: 'json'
-          data: { chapter: {row_order_position: position } }
+          data: { chapter: {chapter_id:item_id, row_order_position: position } }
         )
     )

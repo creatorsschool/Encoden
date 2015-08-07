@@ -18,7 +18,6 @@ class ChaptersController < ApplicationController
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
-
 	def create
 		@course = Course.find(params[:course_id])
 		list = params["chapter_name"].zip(params["chapter_description"])
