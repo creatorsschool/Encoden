@@ -23,7 +23,9 @@
 						</thead>
 						<tbody>
 							<% @lessons.each do |lesson| %>
+								<% if can? :manage, @chapter %>
 								<tr data-item-id=<%= lesson.id %> class="item">
+								<% end %>
 									<td>
 										<%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %>
 									</td>
