@@ -5,9 +5,9 @@ class LessonsController < ApplicationController
 	end
 
 	def show
-		@courses = current_user.courses
-		@chapter = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id])
-		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		@courses = Course.all
+		@chapter = @courses.find(params[:course_id]).chapters.find(params[:chapter_id])
+		@lesson = @courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
 	def update_row_order

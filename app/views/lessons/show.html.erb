@@ -28,8 +28,8 @@
 						            </div>
 						          </div>
 						        </div>
-						      </div>		
-							
+						      </div>
+					<% if can? :manage, @chapter %>
 					<h2>Edit your lesson</h2>
 					<div>
 						<%= link_to "Edit Lesson", edit_course_chapter_lesson_path, class: "btn" %>
@@ -42,7 +42,7 @@
 		            <div class="card-content white-text">
 		              <span class="card-title">Attachments</span>
   									<% @lesson.resources.each do |resource| %>
-     								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %> 
+     								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %>
      								 <%= link_to "Delete file", resource_path(resource), method: :delete %></p>
      								 <% end %>
 				            </div>
@@ -54,6 +54,7 @@
 					<% end %>
 	        </div>
 	      </div>
+	      <% end %>
 			</div>
 		</div>
 	</div>
