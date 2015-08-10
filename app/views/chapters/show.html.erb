@@ -8,15 +8,32 @@
 				<div class="col-md-10">
 					<h1><%= @chapter.name %></h1>
 					<p><%= @chapter.description %></p>
-					<h2>Lessons:</h2>
-					<ol>
-						<% @chapter.lessons.each do |lesson| %>
-						<li><%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | 
-							<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | 
-							<%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
-						</li>
-						<% end %>
-					</ol>
+
+
+<table class="table table-bordered table-striped" id="sortable">
+						<thead>
+							<tr>
+								<th>
+									Lesson
+								</th>
+								<th>
+									Lesson Actions
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @chapter.lessons.each do |lesson| %>
+							<tr class="item">
+								<td>
+									<%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> 
+								</td>
+								<td>
+									<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | <%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 
 				</div>
 				<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id]), class:"btn" %>
