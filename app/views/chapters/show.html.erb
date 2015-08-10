@@ -7,12 +7,33 @@
 			<div class="row">
 				<div class="col-md-10">
 					<h1><%= @chapter.name %></h1>
-					<ul>
-						<li><%= @chapter.description %></li>
-					</ul>
+					<p><%= @chapter.description %></p>
+					<table class="table table-bordered table-striped" id="sortable-lessons" data-chapter-id=<%= @chapter.id %> data-course-id=<%= @chapter.course_id %>>
+						<thead>
+							<tr>
+								<th>
+									Lesson
+								</th>
+								<th>
+									Lesson Actions
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @lessons.each do |lesson| %>
+							<tr data-item-id=<%= "#{lesson.id}" %> class="item">
+								<td>
+									<%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %>
+								</td>
+								<td>
+									<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | <%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 				</div>
 				<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id]), class:"btn" %>
-				<%= link_to "See Course", course_path(params[:course_id])%>
 			</div>
 		</div>
 	</div>

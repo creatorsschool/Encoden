@@ -6,7 +6,16 @@ class LessonsController < ApplicationController
 
 	def show
 		@courses = current_user.courses
+		@chapter = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id])
 		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+	end
+
+	def update_row_order
+		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		# @lesson.update row_order: lesson_params[:row_order]
+		@lesson.row_order_position = lesson_params[:row_order_position]
+		@lesson.save
+		render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
 	end
 
 	def edit
@@ -39,14 +48,14 @@ class LessonsController < ApplicationController
 	def destroy
 		@lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).destroy
 		flash[:notice] = "Lesson destroyed"
-		redirect_to course_path(params[:course_id])
+		redirect_to course_chapter_path(params[:course_id], params[:chapter_id])
 	end
 
 
 	private
 
 	def lesson_params
-		params.require(:lesson).permit(:name, :description)
+		params.require(:lesson).permit(:name, :description, :row_order_position)
 	end
 
 	def resource_params

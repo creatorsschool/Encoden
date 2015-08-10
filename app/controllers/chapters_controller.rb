@@ -9,7 +9,15 @@ class ChaptersController < ApplicationController
 	def show
 		@chapter = Chapter.find(params[:id])
 		@courses = current_user.courses
+		@lessons = @chapter.lessons.order(:row_order)
 	end
+
+	def update_row_order
+    @chapter = Chapter.find(params[:id])
+    @chapter.row_order_position = chapter_params[:row_order_position]
+    @chapter.save
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
 
 	def create
 		@course = Course.find(params[:course_id])
@@ -47,7 +55,7 @@ class ChaptersController < ApplicationController
 	private
 
 	def chapter_params
-		params.require(:chapter).permit(:name, :description)
+		params.require(:chapter).permit(:name, :description, :row_order_position)
 	end
 end
 

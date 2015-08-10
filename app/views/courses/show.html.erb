@@ -14,9 +14,36 @@
 							<li><strong>Price: </strong> <%= @course.formatted_price %></li>
 						</ul>
 					</div>
-					<div class="replaced-ajax">
-						<%= render "chapters", course: @course %>
-					</div>
+					<table class="table table-bordered table-striped" id="sortable-chapters" data-course-id=<%= @course.id %>>
+						<thead>
+							<tr>
+								<th>
+									Chapter
+								</th>
+								<th>
+									Chapter Actions
+								</th>
+								<th>
+									Lesson Actions
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @chapters.each do |chapter| %>
+							<tr data-item-id=<%= "#{chapter.id}" %> class="item">
+								<td>
+									<%= chapter.name %>
+								</td>
+								<td>
+									<%= link_to 'Edit', edit_course_chapter_path(@course, chapter) %> | <%= link_to 'Delete',course_chapter_path(@course, chapter), method: :delete %>
+								</td>
+								<td>
+									<%= link_to 'Show Lessons', course_chapter_path(@course, chapter) %> | <%= link_to 'Add Lesson', new_course_chapter_lesson_path(@course, chapter) %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</div>
 			</div>

@@ -3,13 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  if $('#sortable-chapters').length > 0
-    table_width = $('#sortable-chapters').width()
+  if $('#sortable-lessons').length > 0
+    table_width = $('#sortable-lessons').width()
     cells = $('.table').find('tr')[0].cells.length
     desired_width = table_width / cells + 'px'
     $('.table td').css('width', desired_width)
 
-    $('#sortable-chapters').sortable(
+    $('#sortable-lessons').sortable(
       axis: 'y'
       items: '.item'
       cursor: 'move'
@@ -21,13 +21,14 @@ jQuery ->
         # highlight the row on drop to indicate an update
         ui.item.children('td').effect('highlight', {}, 1000)
       update: (e, ui) ->
-        course_id = $('#sortable-chapters').data('course-id')
+        course_id = $('#sortable-lessons').data('course-id')
+        chapter_id = $('#sortable-lessons').data('chapter-id')
         item_id = ui.item.data('item-id')
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
         $.ajax(
           type: 'POST'
-          url: "/courses/#{course_id}/chapters/#{item_id}/update_row_order"
+          url: "/courses/#{course_id}/chapters/#{chapter_id}/lessons/#{item_id}/update_row_order"
           dataType: 'json'
-          data: { chapter: {chapter_id:item_id, row_order_position: position } }
+          data: { lesson: {lesson_id:item_id, row_order_position: position } }
         )
     )
