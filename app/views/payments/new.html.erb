@@ -1,8 +1,8 @@
-<form id="checkout" method="post" action="/checkout">
+<%= form_tag course_payments_path do %>
   <h4> Thank your for choosing the course "<%= @course.name %>"</h4>
   <div id="payment-form"></div>
-  <input type="submit" value="Pay <%= @course.price %>">
-</form>
+  <%= submit_tag "Pay #{@course.price}" %>
+<% end %>
 
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 <script>
