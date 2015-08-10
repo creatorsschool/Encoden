@@ -1,8 +1,12 @@
 class PaymentsController < ApplicationController
-  def new
+def new
     @course = Course.find(params[:course_id])
+    if @course.paid == true
+      redirect_to courses_path, notice: "You have already bought this course!"
+    else
     @client_token = Braintree::ClientToken.generate
-  end
+    end
+end
 
   def create
     course = Course.find(params[:course_id])
