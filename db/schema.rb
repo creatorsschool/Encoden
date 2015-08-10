@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150810143619) do
     t.datetime "updated_at"
     t.integer  "course_id"
     t.integer  "row_order"
-    t.integer  "position"
   end
 
   create_table "courses", force: :cascade do |t|
