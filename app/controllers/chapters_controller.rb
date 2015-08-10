@@ -3,7 +3,7 @@ class ChaptersController < ApplicationController
 
 	def new
 		@course = Course.find(params[:course_id])
-		@courses = current_user.courses.rank(:row_order).all
+		@courses = current_user.courses
 	end
 
 	def show
