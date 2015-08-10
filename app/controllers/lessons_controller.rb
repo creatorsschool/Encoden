@@ -9,6 +9,13 @@ class LessonsController < ApplicationController
 		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
+	def update_row_order
+		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		@lesson.row_order_position = lesson_params[:row_order_position]
+		@lesson.save
+		render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+	end
+
 	def edit
 		@courses = current_user.courses
 		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
@@ -46,7 +53,7 @@ class LessonsController < ApplicationController
 	private
 
 	def lesson_params
-		params.require(:lesson).permit(:name, :description)
+		params.require(:lesson).permit(:name, :description, :row_order_position)
 	end
 
 	def resource_params
