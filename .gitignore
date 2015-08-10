@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore ENV file with env_variables
-/.env
+*.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
