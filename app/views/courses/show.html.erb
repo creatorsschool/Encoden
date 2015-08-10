@@ -17,7 +17,9 @@
 					<div class="replaced-ajax">
 						<%= render "chapters", course: @course, chapters: @chapters %>
 					</div>
+					<% if can? :manage, @chapter %>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+					<% end %>
 				</div>
 			</div>
 		</div>
