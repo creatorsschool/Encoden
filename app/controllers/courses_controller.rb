@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 	def show
 		@courses = current_user.courses
 		@course = current_user.courses.find(params[:id])
-		@chapters = @course.chapters.order(:row_order)
+		@chapters = @course.chapters.order_by_position
 	end
 
 	def edit

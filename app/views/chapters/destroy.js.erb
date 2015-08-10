@@ -1,1 +1,2 @@
-$('.replaced-ajax').html("<%= j (render 'courses/chapters', course: @course) %>");
+$('.replaced-ajax').html("<%= j (render 'courses/chapters', course: @course, chapters: @chapters) %>");
+window.encoden.sortChapters();

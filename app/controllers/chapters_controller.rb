@@ -46,6 +46,7 @@ class ChaptersController < ApplicationController
 	def destroy
 		@course = Course.find(params[:course_id])
 		@course.chapters.find(params[:id]).destroy
+		@chapters = @course.chapters.order_by_position
 		# flash[:notice] = "Chapter destroyed"
 		# redirect_to course_path(@course)
 	end

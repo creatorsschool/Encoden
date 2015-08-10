@@ -15,7 +15,7 @@
 						</ul>
 					</div>
 					<div class="replaced-ajax">
-						<%= render "chapters", course: @course %>
+						<%= render "chapters", course: @course, chapters: @chapters %>
 					</div>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 				</div>
