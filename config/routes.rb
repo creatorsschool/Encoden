@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
 	resources :users, only: [:edit, :update]
 	resources :resources, only: [:destroy]
+  resources :courses do
+    resources :payments, only: [:new, :create]
+  end
 
 root to: 'pages#index'
 end

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150810110202) do
     t.datetime "updated_at"
     t.integer  "course_id"
     t.integer  "row_order"
+    t.integer  "position"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -39,6 +40,13 @@ ActiveRecord::Schema.define(version: 20150810110202) do
     t.datetime "updated_at"
     t.integer  "chapter_id"
     t.integer  "row_order"
+  end
+
+  create_table "payment", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payments", force: :cascade do |t|
