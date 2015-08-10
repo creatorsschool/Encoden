@@ -11,7 +11,10 @@
 					<h2>Lessons:</h2>
 					<ol>
 						<% @chapter.lessons.each do |lesson| %>
-						<li><%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %></li>
+						<li><%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | 
+							<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | 
+							<%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
+						</li>
 						<% end %>
 					</ol>
 

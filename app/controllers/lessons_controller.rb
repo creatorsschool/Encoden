@@ -39,7 +39,7 @@ class LessonsController < ApplicationController
 	def destroy
 		@lesson = Course.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id]).destroy
 		flash[:notice] = "Lesson destroyed"
-		redirect_to course_path(params[:course_id])
+		redirect_to course_chapter_path(params[:course_id], params[:chapter_id])
 	end
 
 
