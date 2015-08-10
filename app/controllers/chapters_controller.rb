@@ -9,6 +9,7 @@ class ChaptersController < ApplicationController
 	def show
 		@chapter = Chapter.find(params[:id])
 		@courses = current_user.courses
+		@lessons = @chapter.lessons.order(:row_order)
 	end
 
 	def update_row_order

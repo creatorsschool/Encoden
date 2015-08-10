@@ -3,13 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  if $('#sortable').length > 0
-    table_width = $('#sortable').width()
+  if $('#sortable-chapters').length > 0
+    table_width = $('#sortable-chapters').width()
     cells = $('.table').find('tr')[0].cells.length
     desired_width = table_width / cells + 'px'
     $('.table td').css('width', desired_width)
 
-    $('#sortable').sortable(
+    $('#sortable-chapters').sortable(
       axis: 'y'
       items: '.item'
       cursor: 'move'
@@ -21,9 +21,8 @@ jQuery ->
         # highlight the row on drop to indicate an update
         ui.item.children('td').effect('highlight', {}, 1000)
       update: (e, ui) ->
-        course_id = $('#sortable').data('course-id')
+        course_id = $('#sortable-chapters').data('course-id')
         item_id = ui.item.data('item-id')
-        console.log(item_id)
         position = ui.item.index() # this will not work with paginated items, as the index is zero on every page
         $.ajax(
           type: 'POST'
