@@ -1,14 +1,17 @@
 <% if can? :manage, @course %>
 	<%= link_to 'New Course', new_course_path, class: "btn" %>
 <% end %>
+
 <% @courses.each do |course| %>
 	<ul class="list-unstyled">
 		<li><%= course.name %></li>
 		<%= link_to 'Show', course_path(course.id) %> |
+		<% if can? :manage, course %>
 		<%= link_to 'Edit', edit_course_path(course.id) %> |
 		<%= link_to 'Delete', course_path(course),
 		method: :delete,
 		data: { confirm: 'Do you really want to delete?' } %>
+		<% end %>
 <% end %>
 	</ul>
 	<hr>

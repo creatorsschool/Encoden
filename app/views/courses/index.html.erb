@@ -23,10 +23,12 @@
 							</div>
 							<div class="card-action">
 								<%= link_to 'Show', course_path(course.id) %>
+								<% if can? :manage, course %>
 								<%= link_to 'Edit', edit_course_path(course.id) %>
 								<%= link_to 'Delete', course_path(course),
 									method: :delete,
 									data: { confirm: 'Do you really want to delete?' } %>
+								<% end %>
 									<%= link_to'Buy', new_course_payment_path(course.id) %>
 						</div>
 						</div>
