@@ -35,7 +35,7 @@
 									<%= chapter.name %>
 								</td>
 								<td>
-									<%= link_to 'Edit', course_chapter_path(@course, chapter) %> | <%= link_to 'Delete', course_chapter_path(@course, chapter) %>
+									<%= link_to 'Edit', link_to edit_course_chapter_path(course, chapter) %> | <%= link_to 'Delete', link_to course_chapter_path(course, chapter), method: :delete %>
 								</td>
 								<td>
 									<%= link_to 'Show Lessons', course_chapter_path(@course, chapter) %> | <%= link_to 'Add Lesson', course_chapter_path(@course, chapter) %>
