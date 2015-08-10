@@ -27,7 +27,7 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-		current_user.courses.create(course_params)
+		Course.create(course_params)
     flash[:success] = "You have added a new course, hurray!"
     redirect_to courses_path
 	end
