@@ -11,7 +11,9 @@
 						<div class="row center-align">
 							<i class="large material-icons">class</i>
 							<div class="card-content">
+								<% if can? :read, course %>
 								<span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
+								<% end %>
 							</div>
 							<div class="card-reveal">
 								<span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>

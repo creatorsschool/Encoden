@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150810143619) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_id"
+    t.integer  "position"
     t.integer  "row_order"
   end
 

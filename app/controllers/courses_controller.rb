@@ -1,17 +1,17 @@
 class CoursesController < ApplicationController
 
 	def index
-		@courses = current_user.courses
+		@courses = Course.all
 	end
 
 	def show
-		@courses = current_user.courses
-		@course = current_user.courses.find(params[:id])
+		@courses = Course.all
+		@course = @courses.find(params[:id])
 		@chapters = @course.chapters.order_by_position
 	end
 
 	def edit
-		@courses = current_user.courses
+		@courses = Course.all
 		@course = current_user.courses.find(params[:id])
 	end
 
@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
 	end
 
 	def new
-		@courses = current_user.courses
+		@courses = Course.all
 		@course = Course.new
 	end
 

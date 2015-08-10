@@ -4,6 +4,7 @@ class Course < ActiveRecord::Base
 	has_many :payments
   has_many :chapters, dependent: :destroy
 	belongs_to :user
+  has_many :users
 
   def formatted_price
     number_to_currency(price, locale: :pt)

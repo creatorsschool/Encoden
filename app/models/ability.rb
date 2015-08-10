@@ -14,6 +14,6 @@ class Ability
   end
 
   def student
-    can :read, [Course, Chapter, Lesson, Resource]
+    can :read, :all
   end
 end
