@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 		resources :chapters do
       post :update_row_order, on: :member
 			resources :lessons
+        post :update_row_order, on: :member
 		end
 	end
 
