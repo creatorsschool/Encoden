@@ -1,26 +1,31 @@
-<ul class="collapsible" data-collapsible="accordion">
-	<% course.chapters.each do |chapter| %>
-		<li>
-			<div class="collapsible-header">
-				<i class="material-icons">filter_drama</i>
+<table class="table table-bordered table-striped" id="sortable-chapters" data-course-id=<%= @course.id %>>
+	<thead>
+		<tr>
+			<th>
+				Chapter
+			</th>
+			<th>
+				Chapter Actions
+			</th>
+			<th>
+				Lesson Actions
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @course.chapters.order(:row_order).each do |chapter| %>
+		<tr data-item-id=<%= "#{chapter.id}" %> class="item">
+			<td>
 				<%= chapter.name %>
-				<div class="right">
-					<%= link_to course_chapter_path(course, chapter), class: "inner-action" do %>
-						<i class="material-icons">face</i>
-					<% end %>
-					<%= link_to edit_course_chapter_path(course, chapter), class: "inner-action" do %>
-						<i class="material-icons">edit</i>
-					<% end %>
-					<%= link_to course_chapter_path(course, chapter), class: "inner-action", remote: true, method: :delete, data: { confirm: 'Do you really want to delete?' } do %>
-						<i class="material-icons">delete</i>
-					<% end %>
-				</div>
-			</div>
-			<% chapter.lessons.each do |lesson| %>
-				<div class="collapsible-body">
-					<p><%=lesson.name %></p>
-				</div>
-			<% end %>
-		</li>
-	<% end %>
-</ul>
+			</td>
+			<td>
+				<%= link_to 'Edit', edit_course_chapter_path(@course, chapter) %> | 
+				<%= link_to 'Delete', course_chapter_path(course, chapter), remote: true, method: :delete, data: { confirm: 'Do you really want to delete?' } %>
+			</td>
+			<td>
+				<%= link_to 'Show Lessons', course_chapter_path(@course, chapter) %> | <%= link_to 'Add Lesson', new_course_chapter_lesson_path(@course, chapter) %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

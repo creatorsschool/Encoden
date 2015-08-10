@@ -1,6 +1,5 @@
 class ChaptersController < ApplicationController
 
-
 	def new
 		@course = Course.find(params[:course_id])
 		@courses = current_user.courses
@@ -29,7 +28,7 @@ class ChaptersController < ApplicationController
 			})
 		end
 		flash[:success] = "You have added a new chapter!"
-		redirect_to courses_path
+		redirect_to course_path(@course)
 	end
 
 	def edit
@@ -47,10 +46,9 @@ class ChaptersController < ApplicationController
 	def destroy
 		@course = Course.find(params[:course_id])
 		@course.chapters.find(params[:id]).destroy
-		flash[:notice] = "Chapter destroyed"
-		#redirect_to course_path(@course)
+		# flash[:notice] = "Chapter destroyed"
+		# redirect_to course_path(@course)
 	end
-
 
 	private
 
@@ -58,4 +56,3 @@ class ChaptersController < ApplicationController
 		params.require(:chapter).permit(:name, :description, :row_order_position)
 	end
 end
-
