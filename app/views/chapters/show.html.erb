@@ -15,7 +15,9 @@
 									Lesson
 								</th>
 								<th>
+									<% if can? :manage, @chapter %>
 									Lesson Actions
+									<% end %>
 								</th>
 							</tr>
 						</thead>
@@ -26,14 +28,18 @@
 										<%= link_to lesson.name, course_chapter_lesson_path(params[:course_id], params[:id], lesson) %>
 									</td>
 									<td>
+										<% if can? :manage, @chapter %>
 										<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | <%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
+										<% end %>
 									</td>
 								</tr>
 							<% end %>
 						</tbody>
 					</table>
 				</div>
+				<% if can? :manage, @chapter %>
 				<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id]), class:"btn" %>
+				<% end %>
 			</div>
 		</div>
 	</div>

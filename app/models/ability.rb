@@ -15,5 +15,6 @@ class Ability
 
   def student
     can :read, :all
+
   end
 end

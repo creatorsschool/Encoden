@@ -19,11 +19,14 @@
 					<%= chapter.name %>
 				</td>
 				<td>
-					<%= link_to 'Edit', edit_course_chapter_path(course, chapter) %> | 
+					<% if can? :manage, course %>
+					<%= link_to 'Edit', edit_course_chapter_path(course, chapter) %> |
 					<%= link_to 'Delete', course_chapter_path(course, chapter), remote: true, method: :delete, data: { confirm: 'Do you really want to delete?' } %>
+					<% end %>
 				</td>
 				<td>
-					<%= link_to 'Show Lessons', course_chapter_path(course, chapter) %> | <%= link_to 'Add Lesson', new_course_chapter_lesson_path(course, chapter) %>
+
+					<%= link_to 'Show Lessons', course_chapter_path(course, chapter) %><% if can? :manage, course %> | <%= link_to 'Add Lesson', new_course_chapter_lesson_path(course, chapter) %><% end %>
 				</td>
 			</tr>
 		<% end %>
