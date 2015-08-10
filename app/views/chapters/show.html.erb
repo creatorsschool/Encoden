@@ -29,8 +29,8 @@
 									<%= link_to "Edit", edit_course_chapter_lesson_path(params[:course_id], params[:id], lesson) %> | <%= link_to "Delete", course_chapter_lesson_path(params[:course_id], params[:id], lesson), method: :delete %>
 								</td>
 							</tr>
-							<% end %>
 						</tbody>
+						<% end %>
 					</table>
 				</div>
 				<%= link_to "Add Lesson", new_course_chapter_lesson_path(params[:course_id], params[:id]), class:"btn" %>
