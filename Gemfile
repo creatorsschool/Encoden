@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#gem for hiding the keys for payment api
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -51,6 +53,9 @@ gem 'ranked-model'
 gem 'jquery-ui-rails'
 
 gem 'quiet_assets'
+
+#payment gem Braintree
+gem 'braintree', require: 'braintree'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

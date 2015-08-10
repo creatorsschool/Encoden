@@ -1,0 +1,17 @@
+<%= form_tag course_payments_path do %>
+  <h4> Thank your for choosing the course "<%= @course.name %>"</h4>
+  <div id="payment-form"></div>
+  <%= submit_tag "Pay #{@course.price}" %>
+<% end %>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+var clientToken = "<%= @client_token %>";
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+</script>
