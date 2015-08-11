@@ -1,7 +1,13 @@
 class CoursesController < ApplicationController
 
 	def index
-		@courses = Course.all
+		if params[:search]
+			@courses = Course.where('lower(name) LIKE ?', "%#{params[:search]}%")
+		else
+			@courses = Course.all
+		end
+
+#render json: @courses
 	end
 
 	def show
@@ -28,8 +34,8 @@ class CoursesController < ApplicationController
 
 	def create
 		Course.create(course_params)
-    flash[:success] = "You have added a new course, hurray!"
-    redirect_to courses_path
+		flash[:success] = "You have added a new course, hurray!"
+		redirect_to courses_path
 	end
 
 	def destroy

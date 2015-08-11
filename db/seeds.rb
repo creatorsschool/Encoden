@@ -56,3 +56,12 @@ Lesson.create(name: "Spamming 101", description: "Lesson 1 from Chapter 1 and Co
 Lesson.create(name: "Spamming 102", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
 Lesson.create(name: "Email Analytics", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
 
+
+Course.create(name: "Servers", description: "This is second Course", duration: 10, price: 200, user_id: 1, paid: false)
+Chapter.create(name: "Blogging", description: "First Chapter from course 1", course_id: 3)
+Lesson.create(name: "How email works", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
+Lesson.create(name: "Working with autoresponders", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 6)
+Lesson.create(name: "Email Marketing", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 6)
+Lesson.create(name: "Spamming 101", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 6)
+Lesson.create(name: "Spamming 102", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 6)
+Lesson.create(name: "Email Analytics", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 6)

@@ -1,19 +1,19 @@
-$(function() {
+//$(function() {
 
-  $('#search_form input').on('keyup', function(event) {
-    event.preventDefault();
+//  $('#search_form input').on('keyup', function(event) {
+//    event.preventDefault();
 
-    input = $('#search_form input').val();
+//    input = $('#search_form input').val();
 
-    $.ajax("/search?search=" + input, {
-      success: function(data) {
-        $('#postsList').html('');
+//    $.ajax("/courses?search=" + input, {
+//      success: function(data) {
+//        $('#postsList').html('');
 
-        data.forEach(function(post) {
-          $('#postsList').append('<li>' + post.title + '</li>')
-        });
-      }
-    });
-  });
+//        data.forEach(function(course) {
+//          $('#postsList').append('<h1>' + course.name + '</h1>');
+//        });
+//      }
+//    });
+//  });
 
-});
+//});
