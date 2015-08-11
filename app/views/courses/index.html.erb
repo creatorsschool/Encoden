@@ -11,7 +11,9 @@
 						<div class="row center-align">
 							<i class="large material-icons">class</i>
 							<div class="card-content">
+								<% if can? :read, course %>
 								<span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
+								<% end %>
 							</div>
 							<div class="card-reveal">
 								<span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>
@@ -21,10 +23,12 @@
 							</div>
 							<div class="card-action">
 								<%= link_to 'Show', course_path(course.id) %>
+								<% if can? :manage, course %>
 								<%= link_to 'Edit', edit_course_path(course.id) %>
 								<%= link_to 'Delete', course_path(course),
 									method: :delete,
 									data: { confirm: 'Do you really want to delete?' } %>
+								<% end %>
 									<%= link_to'Buy', new_course_payment_path(course.id) %>
 						</div>
 						</div>

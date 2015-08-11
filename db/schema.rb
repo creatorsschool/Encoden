@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810143619) do
+ActiveRecord::Schema.define(version: 20150811003713) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "name"
@@ -42,16 +42,7 @@ ActiveRecord::Schema.define(version: 20150810143619) do
     t.integer  "row_order"
   end
 
-  create_table "payment", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "course_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "payments", force: :cascade do |t|
-    t.date     "payment_date",                 null: false
-    t.boolean  "paid",         default: false
     t.integer  "course_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -75,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150810143619) do
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
     t.string   "avatar"
+    t.integer  "student_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

@@ -54,4 +54,5 @@ Lesson.create(name: "Working with autoresponders", description: "Lesson 1 from C
 Lesson.create(name: "Email Marketing", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
 Lesson.create(name: "Spamming 101", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
 Lesson.create(name: "Spamming 102", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
-Lesson.create(name: "Email Analytics", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 2)
+Lesson.create(name: "Email Analytics", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 5)
+

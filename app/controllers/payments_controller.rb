@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
 def new
     @course = Course.find(params[:course_id])
-    if @course.paid == true
+    if !@course.students.empty?
       redirect_to courses_path, notice: "You have already bought this course!"
     else
     @client_token = Braintree::ClientToken.generate
@@ -19,7 +19,7 @@ end
     )
 
     if result.success?
-      @course.update(paid: true)
+      @course.students << current_user
       redirect_to courses_path, notice: "Congratulations! Your transaction has been completed successfully!"
     else
       flash[:alert] = "Something went wrong while processing your transaction. Please try again!"

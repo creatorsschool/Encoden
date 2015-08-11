@@ -8,7 +8,7 @@
 			<form  action="<%= course_chapters_path({course_id: @course.id}) %>" method="post">
 				<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
 				<div id="chapter-form">
-					<h5> Chapter Number #</h5>
+					<h5> Chapter</h5>
 					<input type="text" name="chapter_name[]" placeholder="Chapter Name" class="col s6">
 					<div class="row">
 						<textarea name="chapter_description[]" placeholder="Chapter Description" class="materialize-textarea"></textarea>
