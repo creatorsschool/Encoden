@@ -9,9 +9,6 @@ def new
 end
 
   def create
-    binding_pry
-    @teacher = current_user.payments.build(params[:user_id]) unless current_user.teacher? == false
-    @student = current_user.payments.build(params[:user_id]) unless current_user.teacher? == true
     @course = Course.find(params[:course_id])
     result = Braintree::Transaction.sale(
       :amount => @course.price,
@@ -22,7 +19,7 @@ end
     )
 
     if result.success?
-      @course.update(paid: true)
+      @course.students << current_user
       redirect_to courses_path, notice: "Congratulations! Your transaction has been completed successfully!"
     else
       flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
