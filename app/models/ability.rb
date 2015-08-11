@@ -11,10 +11,11 @@ class Ability
 
   def teacher
     can :manage, :all
+    cannot :buy, Course
   end
 
   def student
     can :read, :all
-
+    can :buy, Course
   end
 end
