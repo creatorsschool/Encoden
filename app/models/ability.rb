@@ -15,6 +15,7 @@ class Ability
   end
 
   def student
+
     can :read, :all
     can :buy, Course
   end

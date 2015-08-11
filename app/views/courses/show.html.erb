@@ -14,9 +14,27 @@
 							<li><strong>Price: </strong> <%= @course.formatted_price %></li>
 						</ul>
 					</div>
+					<% if can? :manage, Course %>
 					<div class="replaced-ajax">
 						<%= render "chapters", course: @course, chapters: @chapters %>
 					</div>
+					<% end %>
+
+					<% if can? :buy, Course %>
+					<ul class="collapsible" data-collapsible="accordion">
+						<% @course.chapters.each do |chapter| %>
+						<li>
+							<div class="collapsible-header"><i class="material-icons">filter_drama</i><%= chapter.name %></div>
+							<% chapter.lessons.each do |lesson| %>
+							<div class="collapsible-body"><p><%= lesson.name %></p></div>
+							<% end %>
+						</li>
+						<% end %>
+
+
+					</ul>
+
+					<% end %>
 					<% if can? :manage, @chapter %>
 					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
 					<% end %>
