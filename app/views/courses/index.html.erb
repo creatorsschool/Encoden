@@ -29,7 +29,9 @@
 									method: :delete,
 									data: { confirm: 'Do you really want to delete?' } %>
 								<% end %>
+								<% if can? :buy, course %>
 									<%= link_to'Buy', new_course_payment_path(course.id) %>
+								<% end %>	
 						</div>
 						</div>
 					</div>
