@@ -1,44 +1,45 @@
 	<div class="row">
-	<div class="col s12 m4 l3 card teal lighten-5">
-		<%= render partial: '/admin/sidebar' %>
-	</div>
-	<div class="col s12 m8 l9">
-		<div class="col-md-9">
-			<div class="row">
-				<div class="col-md-10">
-					<div class="card">
-						<h1><%= @course.name %></h1>
-						<ul>
-							<li><strong>Description: </strong><%= @course.description %></li>
-							<li><strong>Duration: </strong> <%= @course.duration %></li>
-							<li><strong>Price: </strong> <%= @course.formatted_price %></li>
-						</ul>
-					</div>
-					<% if can? :manage, Course %>
-					<div class="replaced-ajax">
-						<%= render "chapters", course: @course, chapters: @chapters %>
-					</div>
-					<% end %>
-
-					<% if can? :buy, Course %>
-					<ul class="collapsible" data-collapsible="accordion">
-						<% @course.chapters.each do |chapter| %>
-						<li>
-							<div class="collapsible-header"><i class="material-icons">filter_drama</i><%= chapter.name %></div>
-							<% chapter.lessons.each do |lesson| %>
-							<div class="collapsible-body"><p><%= lesson.name %></p></div>
-							<% end %>
-						</li>
+		<div class="col s12 m4 l3 card teal lighten-5">
+			<%= render partial: '/admin/sidebar' %>
+		</div>
+		<div class="col s12 m8 l9">
+			<div class="col-md-9">
+				<div class="row">
+					<div class="col-md-10">
+						<div class="card">
+							<h1><%= @course.name %></h1>
+							<ul>
+								<li><strong>Description: </strong><%= @course.description %></li>
+								<li><strong>Duration: </strong> <%= @course.duration %></li>
+								<li><strong>Price: </strong> <%= @course.formatted_price %></li>
+							</ul>
+						</div>
+						<% if can? :manage, Course %>
+						<div class="replaced-ajax">
+							<%= render "chapters", course: @course, chapters: @chapters %>
+						</div>
 						<% end %>
 
-
-					</ul>
-
-					<% end %>
-					<% if can? :manage, @chapter %>
-					<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
-					<% end %>
+						<% if can? :buy, Course %>
+						<ul class="collapsible" data-collapsible="accordion">
+							<% @course.chapters.each do |chapter| %>
+							<li>
+								<div class="collapsible-header"><i class="material-icons">filter_drama</i><%= chapter.name %></div>
+								<% chapter.lessons.each do |lesson| %>
+								<div class="collapsible-body">
+									<p>
+										<%= link_to lesson.name, course_chapter_lesson_path(@course.id, params[:id], lesson) %>
+									</p>
+								</div>
+								<% end %>
+							</li>
+							<% end %>
+						</ul>
+						<% end %>
+						<% if can? :manage, @chapter %>
+						<%= link_to 'Add Chapter', new_course_chapter_path(@course.id), class: "btn" %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
