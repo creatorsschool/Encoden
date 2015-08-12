@@ -12,65 +12,70 @@
 		</form>
 		<div id="postsList">
 			<% @courses.each do |course| %>
-				<div class="col s4">
-					<div class="card small">
-						<div class="row center-align">
-							<i class="large material-icons">class</i>
-							<div class="card-content">
-								<% if can? :read, course %>
-									<span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
-								<% end %>
-							</div>
-							<div class="card-reveal">
-								<span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>
-								<p>Description: <%= course.description %></p>
-								<p>Duration: <%= course.duration %></p>
-								<p>Price: <%= course.formatted_price %></p>
-							</div>
-							<div class="card-action">
-								<%= link_to 'Show', course_path(course.id) %>
-								<% if can? :manage, course %>
-									<%= link_to 'Edit', edit_course_path(course.id) %>
-									<%= link_to 'Delete', course_path(course),
-										method: :delete,
-										data: { confirm: 'Do you really want to delete?' } %>
-								<% end %>
+			<div class="col s4">
+				<div class="card small">
+					<div class="row center-align">
+						<i class="large material-icons">class</i>
+						<div class="card-content">
+							<% if can? :read, course %>
+							<span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
+							<% end %>
+						</div>
+						<div class="card-reveal">
+							<span class="card-title grey-text text-darken-4"><%= course.name %><i class="material-icons right">close</i></span>
+							<p>Description: <%= course.description %></p>
+							<p>Duration: <%= course.duration %></p>
+							<p>Price: <%= course.formatted_price %></p>
+						</div>
+						<div class="card-action">
+							<%= link_to 'Show', course_path(course.id) %>
+							<% if can? :manage, course %>
+							<%= link_to 'Edit', edit_course_path(course.id) %>
+							<%= link_to 'Delete', course_path(course),
+							method: :delete,
+							data: { confirm: 'Do you really want to delete?' } %>
+							<% end %>
 
-								<% if can? :buy, course %>
-									<%= link_to'Buy', new_course_payment_path(course.id) %>
-								<% end %>
-							</div>
+							<% if can? :buy, course %>
+							<%= link_to'Buy', new_course_payment_path(course.id) %>
+							<% end %>
 						</div>
 					</div>
 				</div>
-			<% end %>
-		</div>
-		<div class="col s4">
-			<div class="card small">
-				<div class="row center-align">
-					<i class="large material-icons">face</i>
-				</div>
-				<div class="card-content">
-					<p>In here you can make changes to your User Profile, such as editing your password or e-mail address.</p>
-				</div>
-				<div class="card-action">
-					<%= link_to 'Edit', edit_user_path(current_user) %>
-				</div>
 			</div>
 		</div>
-		<div class="col s4">
-			<div class="card small">
-				<div class="row center-align">
-					<i class="large material-icons">group add</i>
-				</div>
-				<div class="card-content">
-					<p>You have x new students. Hurray!</p>
-				</div>
-				<div class="card-action">
-					<%= link_to 'View Student list', edit_user_path(current_user) %>
+		<% end %>
+	</div>
+	<div class="col s4">
+		<div class="card small">
+			<div class="row center-align">
+				<i class="large material-icons">face</i>
+			</div>
+			<div class="card-content">
+				<p>In here you can make changes to your User Profile, such as editing your password or e-mail address.</p>
+			</div>
+			<div class="card-action">
+				<%= link_to 'Edit', edit_user_path(current_user) %>
+			</div>
+		</div>
+				<div class="col s4">
+					<div class="card small">
+						<div class="row center-align">
+							<i class="large material-icons">group add</i>
+							<p>Total Number of Students: </p>
+						</div>
+						<div class="card-content">
+							<div class="row center-align">
+								<h1> <%= current_user.taught_courses.includes(:students).flat_map(&:students).uniq.count %>
+								</h1>
+							</div>
+						</div>
+						<div class="card-action">
+							<%= link_to 'View Student list', edit_user_path(current_user) %>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
