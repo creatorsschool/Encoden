@@ -39,3 +39,8 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+.student-counter{
+  text-align: center;
+  font-size: 80px;
+}
