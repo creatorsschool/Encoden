@@ -9,4 +9,8 @@ class Course < ActiveRecord::Base
   def formatted_price
     number_to_currency(price, locale: :pt)
   end
+
+  def has_student?(student)
+    payments.where(user_id: student.id).count > 0
+  end
 end
