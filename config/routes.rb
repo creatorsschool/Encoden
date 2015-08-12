@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'courses/students', to: 'courses#students#show', as: :courses_students
   resources :courses do
 		resources :chapters do
       post :update_row_order, on: :member
