@@ -48,13 +48,9 @@
 								</div>
 							</div>
 							<%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
-								<div class="file-field input-field">
 								<%= f.label :file %>
-								<%= f.file_field :file, class: "file-path validate" %>
-								<div class="btn">
-								<%= f.submit "Upload" %>
-								</div>
-								</div>
+								<%= f.file_field :file %>
+								<%= f.submit "Upload", class: "btn" %>
 							<% end %>
 						</div>
 					</div>
