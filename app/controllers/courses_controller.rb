@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
 
 	def edit
 		@courses = Course.all
-		@course = current_user.courses.find(params[:id])
+		@course = @courses.find(params[:id])
 	end
 
 	def update
