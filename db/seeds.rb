@@ -14,7 +14,7 @@ Lesson.destroy_all
 User.create(name: "admin", email: 'admin@gmail.com', password: 'teste', teacher: true)
 User.create(name: "user", email: 'user@gmail.com', password: 'teste', teacher: false)
 
-Course.create(name: "Web Development Course", description: "This is first Course", duration: 10, price: 200, user_id: 1, paid: false)
+Course.create(name: "Web Development", description: "This is first Course", duration: 10, price: 200, user_id: 1, paid: false)
 Chapter.create(name: "Introduction to websites", description: "First Chapter from course 1", course_id: 1)
 Lesson.create(name: "Education, understanding an implementation", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 1)
 Lesson.create(name: "Image and file sizes explained ", description: "Lesson 1 from Chapter 1 and Course 1", chapter_id: 1)
