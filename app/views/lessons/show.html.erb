@@ -5,31 +5,31 @@
 	<div class="col s12 m8 l9">
 		<div class="col-md-9">
 			<div class="row">
-					<h1 class="center-align"><%= @lesson.name %></h1>
-					<% @lesson.resources.each do |resource| %>
-						<% if resource.file.url.split('.').last == "mp4" %>
-							<div class="center-align">
-								<video class="responsive-video" controls>
-	    					<source src="<%= resource.file.url %>" type="video/mp4">
-					  		</video>
-				  		</div>
-			  		<% end %>
-		  		<% end %>
-		  		<p><%= @lesson.description %></p>
-		  		<div class="row">
-				        <div class="col s12 m6">
-				          <div class="card teal lighten-2">
-				            <div class="card-content white-text">
-				              <span class="card-title">Attachments</span>
-		  									<% @lesson.resources.each do |resource| %>
-													<% if resource.file.url.split('.').last != "mp4" %>
-	           								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %></p>
-	           								 <% end %><% end %>
-						            </div>
-						          </div>
-						        </div>
-						      </div>
-					<% if can? :manage, @chapter %>
+				<h1 class="center-align"><%= @lesson.name %></h1>
+				<% @lesson.resources.each do |resource| %>
+					<% if resource.file.url.split('.').last == "mp4" %>
+						<div class="center-align">
+							<video class="responsive-video" controls>
+								<source src="<%= resource.file.url %>" type="video/mp4">
+							</video>
+						</div>
+					<% end %>
+				<% end %>
+				<p><%= @lesson.description %></p>
+				<div class="row">
+					<div class="col s12 m6">
+						<div class="card teal lighten-2">
+							<div class="card-content white-text">
+								<span class="card-title">Attachments</span>
+								<% @lesson.resources.each do |resource| %>
+									<% if resource.file.url.split('.').last != "mp4" %>
+										<p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %></p>
+									<% end %><% end %>
+						</div>
+						</div>
+					</div>
+				</div>
+				<% if can? :manage, @chapter %>
 					<h2>Edit your lesson</h2>
 					<div>
 						<%= link_to "Edit Lesson", edit_course_chapter_lesson_path, class: "btn" %>
@@ -37,24 +37,28 @@
 					</div>
 					<br>
 					<div class="row">
-		        <div class="col s12 m6">
-		          <div class="card teal lighten-2">
-		            <div class="card-content white-text">
-		              <span class="card-title">Attachments</span>
-  									<% @lesson.resources.each do |resource| %>
-     								 <p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %>
-     								 <%= link_to "Delete file", resource_path(resource), method: :delete %></p>
-     								 <% end %>
-				            </div>
-				          </div>
-	          <%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
-						<%= f.label :file %>
-						<%= f.file_field :file %>
-						<%= f.submit "Upload", class: "btn" %>
-					<% end %>
-	        </div>
-	      </div>
-	      <% end %>
+						<div class="col s12 m6">
+							<div class="card teal lighten-2">
+								<div class="card-content white-text">
+									<span class="card-title">Attachments</span>
+									<% @lesson.resources.each do |resource| %>
+										<p><i class="material-icons">description</i> <%= link_to resource.file.file.filename, resource.file.url %>
+									<%= link_to "Delete file", resource_path(resource), method: :delete %></p>
+									<% end %>
+								</div>
+							</div>
+							<%= form_for :resource, method: :patch, html: { multipart: true } do |f| %>
+								<div class="file-field input-field">
+								<%= f.label :file %>
+								<%= f.file_field :file, class: "file-path validate" %>
+								<div class="btn">
+								<%= f.submit "Upload" %>
+								</div>
+								</div>
+							<% end %>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
