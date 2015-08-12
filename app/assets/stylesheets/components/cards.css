@@ -1,5 +1,5 @@
-.card:hover i.large {
-  animation: pulse .8s 1 ease-in-out;
+.card:hover img {
+  animation: pulse .5s 1 ease-in-out;
 }
 
 .card:hover {
