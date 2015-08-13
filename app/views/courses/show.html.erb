@@ -28,7 +28,7 @@
 								<% chapter.lessons.each do |lesson| %>
 								<div class="collapsible-body">
 									<p>
-										<%= link_to lesson.name, course_chapter_lesson_path(@course.id, params[:id], lesson) %>
+										<%= link_to lesson.name, course_chapter_lesson_path(@course.id, chapter, lesson) %>
 									</p>
 								</div>
 								<% end %>
