@@ -19,8 +19,8 @@ class LessonsController < ApplicationController
 	end
 
 	def edit
-		@courses = current_user.courses
-		@lesson = current_user.courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
+		@courses = current_user.taught_courses
+		@lesson = @courses.find(params[:course_id]).chapters.find(params[:chapter_id]).lessons.find(params[:id])
 	end
 
 	def update
