@@ -44,6 +44,10 @@ class CoursesController < ApplicationController
 		redirect_to courses_path
 	end
 
+	def students
+		@students = User.find(1).taught_courses.includes(:students).flat_map { |course| course.students }
+	end
+
 
 	private
 

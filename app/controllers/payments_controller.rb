@@ -4,7 +4,7 @@ def new
     if !@course.students.empty?
       redirect_to courses_path, notice: "You have already bought this course!"
     else
-    @client_token = Braintree::ClientToken.generate
+      @client_token = Braintree::ClientToken.generate
     end
 end
 
