@@ -20,6 +20,12 @@
   cursor: move;
 }
 
+.dashboard-icon {
+  max-width: 111px;
+  max-height: 100px;
+  padding: 10px 0px;
+}
+
 /*Parallax*/
 .parallax img{
 	display: block;
