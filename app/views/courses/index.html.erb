@@ -62,19 +62,21 @@
 				</div>
 			</div>
 		</div>
+		<% if can? :manage, Course %>
 		<div class="col s4">
 			<div class="card small">
 				<div class="row center-align">
 					<%= image_tag("students-icon.png", class:"dashboard-icon") %>
 				</div>
-				<div class="card-content">
-					<p>You have x new students. Hurray!</p>
+				<div>
+					<div class="card-content row center-align" style="font-size:80px;"><%= current_user.taught_courses.includes(:students).flat_map(&:students).uniq.count %></div>
 				</div>
-				<div class="card-action">
-					<%= link_to 'View Student list', edit_user_path(current_user) %>
+				<div class="card-action center-align">
+					<%= link_to 'View Student list', courses_students_path %>
 				</div>
 			</div>
 		</div>
+		<% end %>
 	</div>
 </div>
 </div>
