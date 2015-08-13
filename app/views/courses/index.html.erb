@@ -15,7 +15,7 @@
 				<div class="col s4">
 					<div class="card small">
 						<div class="row center-align">
-							<img src="/assets/courses-icon.png" class="dashboard-icon" alt="Courses Icon">
+							<%= image_tag("courses-icon.png", class:"dashboard-icon") %>
 							<div class="card-content">
 								<% if can? :read, course %>
 									<span class="card-title activator grey-text text-darken-4"><%= course.name %><i class="material-icons right">more_vert</i></span>
@@ -48,7 +48,7 @@
 		<div class="col s4">
 			<div class="card small">
 				<div class="row center-align">
-					<img src="/assets/myprofile-icon.png" class="dashboard-icon" alt="User Profile icon">
+					<%= image_tag("myprofile-icon.png", class:"dashboard-icon") %>
 				</div>
 				<div class="card-content">
 					<p>In here you can make changes to your User Profile, such as editing your password or e-mail address.</p>
@@ -61,7 +61,7 @@
 		<div class="col s4">
 			<div class="card small">
 				<div class="row center-align">
-					<img src="/assets/students-icon.png" class="dashboard-icon" alt="Students Icon">
+					<%= image_tag("students-icon.png", class:"dashboard-icon") %>
 				</div>
 				<div class="card-content">
 					<p>You have x new students. Hurray!</p>
