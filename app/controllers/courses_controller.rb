@@ -13,7 +13,6 @@ class CoursesController < ApplicationController
 	def show
 		@courses = Course.all
 		@course = @courses.find(params[:id])
-		@chapter = @course.chapters.find(params[:id])
 		@chapters = @course.chapters.order_by_position
 	end
 
